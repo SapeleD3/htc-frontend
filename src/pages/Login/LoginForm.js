@@ -6,8 +6,8 @@ import { PUBLIC_PATHS } from '../../app/constants';
 
 export default function LoginForm() {
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [, setEmail] = useState('');
+  const [, setPassword] = useState('');
   return (
     <Flex justifyContent='center' height='100%' flexDirection='column'>
       {' '}
