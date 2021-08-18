@@ -19,7 +19,7 @@ export default function RegisterForm() {
         mb={4}
         textAlign='left'
       >
-        HTC REGISTER
+        HTS REGISTER
       </Text>
       <CustomInput
         label='fullname'
@@ -43,6 +43,11 @@ export default function RegisterForm() {
       />
       <CustomInput
         label='password'
+        placeholder='......'
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <CustomInput
+        label='referral link (Optional)'
         placeholder='......'
         onChange={(e) => setPassword(e.target.value)}
       />

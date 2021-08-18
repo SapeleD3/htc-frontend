@@ -19,11 +19,11 @@ export default function LoginForm() {
         mb={4}
         textAlign='left'
       >
-        HTC LOGIN
+        HTS LOGIN
       </Text>
       <CustomInput
-        label='email'
-        placeholder='example@mail....'
+        label='username'
+        placeholder='uniqueone'
         onChange={(e) => setEmail(e.target.value)}
       />
       <CustomInput
