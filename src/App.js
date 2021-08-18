@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { AuthenticatedUserApp } from './app/components/authenticatedApp';
+import { UnAuthenticatedUserApp } from './app/components/unAuthenticatedApp';
+import Loading from './components/full-page-loader';
+
+const { useState, useEffect } = React;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [checkingStatus, setCheckingStatus] = useState(true);
+
+  useEffect(() => {
+    const checkStatus = async () => {
+      try {
+        const status = false;
+        if (status) {
+          setIsLoggedIn(true);
+        }
+        setCheckingStatus(false);
+      } catch (error) {
+        setCheckingStatus(false);
+      }
+    };
+    checkStatus();
+  }, []);
+
+  if (checkingStatus) {
+    return <Loading />;
+  }
+
+  if (isLoggedIn) {
+    return <AuthenticatedUserApp />;
+  }
+
+  return <UnAuthenticatedUserApp />;
 }
 
 export default App;
