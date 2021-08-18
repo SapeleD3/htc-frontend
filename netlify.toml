@@ -5,3 +5,8 @@
 [context.develop]
   [context.develop.environment]
     REACT_APP_BRANCH = "develop"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
