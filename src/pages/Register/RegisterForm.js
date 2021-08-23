@@ -19,7 +19,7 @@ export default function RegisterForm() {
         mb={4}
         textAlign='left'
       >
-        HTC REGISTER
+        HTC REGISTRATION
       </Text>
       <CustomInput
         label='fullname'
