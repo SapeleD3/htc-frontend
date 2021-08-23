@@ -46,6 +46,11 @@ export default function RegisterForm() {
         placeholder='......'
         onChange={(e) => setPassword(e.target.value)}
       />
+      <CustomInput
+        label='referral link (Optional)'
+        placeholder='......'
+        onChange={(e) => setPassword(e.target.value)}
+      />
       <Button margin={[1, 3]} minW={['300px', '380px']}>
         Register
       </Button>
