@@ -5,13 +5,13 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel, Stack } from "@chakra-ui/react
 import CompanyProfile from "./CompanyProfile";
 import Strategy from "./Strategy";
 import Human from "./Human";
+import Management from "./Management";
 
 const About = () => {
     return (
         <>
         <Stack >
         <Header />
-            <section id="about"/>
             <Box>
                 <Container maxW="container.lg">
                     <Tabs isFitted>
@@ -31,6 +31,9 @@ const About = () => {
                             </TabPanel>
                             <TabPanel>
                            <Human/>
+                            </TabPanel>
+                            <TabPanel>
+                           <Management/>
                             </TabPanel>
                         </TabPanels>
                     </Tabs>

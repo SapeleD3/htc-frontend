@@ -1,50 +1,39 @@
 .jumbotron {
-    background-image:  linear-gradient(117.95deg, #25232e -4.73%, rgba(2, 2, 4, 0.82) 55.25%), url('../../assets/jumbo.jpg');
-    background-position: center;
-    background-origin: border-box;
-    background-attachment: fixed;
+    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),  url(../../assets/chart.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 110vh;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
-    top: -5%;
-    width: 100%;
+    top: -2%;
+    height: auto;
+    padding-bottom: 10px;
 }
-
-.word{
-    text-shadow: 0px 10px 4px rgba(0, 0, 0, 0.12);
-}
-
-.word::before{
-color: #E54242;
-content: 'Welcome to';
-}
-
 
 
 .j-btn{
     outline: none;
-    border: 1px solid #E54242;
     align-content: center;
     justify-content: center;
     padding: 5px;
-    background-color: transparent;
+    background-color:#E54242;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 5px;
     width: 250px;
     height: 50px;
     margin-top: 18px;
     font-size: 18px;
     font-weight: 500;
     font-family: poppins;
+    text-transform: uppercase;
     
 }
 
 .j-btn:hover{
+    transform: translateY(-10px);
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.1);
+    transition: all ease 0.2s;
     cursor: pointer;
-    background-color: #E54242;
-    transition: background-color 0.5s ease ;
-    box-shadow: 0px 9px 7px rgba(0, 0, 0, 0.25);
 }
 
 .team-member:hover{
@@ -54,27 +43,6 @@ content: 'Welcome to';
     cursor: pointer;
 }
 
-#about {
-    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),  url(../../assets/about.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 30vh;
-    position: relative;
-    top: -10%;
-}
-
-#benefits {
-    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),  url(../../assets/jumbo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 15vh;
-    position: relative;
-    top: -20%;
-}
 
 .team-box {
     background-image:  url(../../assets/team.png);
@@ -89,4 +57,13 @@ content: 'Welcome to';
     box-shadow:  0px 0px 20px rgba(0, 0, 0, 0.1);;
 }
 
+.word {
+    font-size: 0.9rem;
+}
 
+@media screen and (max-width: 960px) {
+.word { 
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+}
