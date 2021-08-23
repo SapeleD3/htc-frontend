@@ -5,8 +5,9 @@ import Landing from "../pages/Landing";
 import { PUBLIC_PATHS, PROTECTED_PATHS } from "./constants";
 import About from "../pages/About/About";
 import Benefits from "../pages/Benefits/Benefits";
+import Team from "../pages/Team/Team";
 
-const { LOGIN, REGISTER, FORGOT_PASS, LANDING, ABOUT, BENEFITS } = PUBLIC_PATHS;
+const { LOGIN, REGISTER, FORGOT_PASS, LANDING, ABOUT, BENEFITS, TEAM } = PUBLIC_PATHS;
 const { HOME } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
     {
@@ -27,6 +28,11 @@ export const PUBLIC_ROUTES = [
     {
         path: BENEFITS,
         page: Benefits,
+        exact: true,
+    },
+    {
+        path: TEAM,
+        page: Team,
         exact: true,
     },
     {
