@@ -1,13 +1,29 @@
-import { Flex, Button, Text } from '@chakra-ui/react';
+import { Flex, Button, Text, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import CustomInput from '../../components/Input';
 import { useHistory } from 'react-router';
 import { PUBLIC_PATHS } from '../../app/constants';
+import { userLogin } from './login.api';
 
 export default function LoginForm() {
   const history = useHistory();
-  const [, setEmail] = useState('');
-  const [, setPassword] = useState('');
+  const toast = useToast();
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState('');
+
+  const login = () => {
+    setLoading(true);
+    userLogin(
+      setLoading,
+      {
+        email,
+        password,
+      },
+      toast
+    );
+  };
+
   return (
     <Flex justifyContent='center' height='100%' flexDirection='column'>
       {' '}
@@ -22,8 +38,8 @@ export default function LoginForm() {
         HTS LOGIN
       </Text>
       <CustomInput
-        label='username'
-        placeholder='uniqueone'
+        label='email'
+        placeholder='example@emm'
         onChange={(e) => setEmail(e.target.value)}
       />
       <CustomInput
@@ -45,7 +61,12 @@ export default function LoginForm() {
           Forgot Password?
         </Button>
       </Flex>
-      <Button margin={[1, 3]} minW={['300px', '380px']}>
+      <Button
+        margin={[1, 3]}
+        onClick={login}
+        isLoading={loading}
+        minW={['300px', '380px']}
+      >
         Login
       </Button>
       <Button

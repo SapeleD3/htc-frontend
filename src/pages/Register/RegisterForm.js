@@ -1,13 +1,38 @@
-import { Flex, Button, Text } from '@chakra-ui/react';
+import { Flex, Button, Text, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import CustomInput from '../../components/Input';
 import { useHistory } from 'react-router';
 import { PUBLIC_PATHS } from '../../app/constants';
+import { signupUser } from './register.api';
 
 export default function RegisterForm() {
+  const toast = useToast();
+  const location = window.location.origin;
   const history = useHistory();
-  const [, setEmail] = useState('');
-  const [, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhone] = useState('');
+  const [userName, setUserName] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [referralLink, link] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const signUp = () => {
+    signupUser(
+      setLoading,
+      {
+        phoneNumber,
+        email: email.toLowerCase(),
+        password,
+        userName,
+        fullName,
+        myLink: `${location}/${userName}`,
+        referralLink,
+      },
+      toast
+    );
+  };
+
   return (
     <Flex justifyContent='center' height='100%' flexDirection='column'>
       {' '}
@@ -23,8 +48,8 @@ export default function RegisterForm() {
       </Text>
       <CustomInput
         label='fullname'
-        placeholder='example example'
-        onChange={(e) => setEmail(e.target.value)}
+        placeholder='first last'
+        onChange={(e) => setFullName(e.target.value)}
       />
       <CustomInput
         label='email'
@@ -34,12 +59,12 @@ export default function RegisterForm() {
       <CustomInput
         label='phonenumber'
         placeholder='070****'
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setPhone(e.target.value)}
       />
       <CustomInput
         label='username'
         placeholder='uniqueone'
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setUserName(e.target.value)}
       />
       <CustomInput
         label='password'
@@ -49,9 +74,14 @@ export default function RegisterForm() {
       <CustomInput
         label='referral link (Optional)'
         placeholder='......'
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => link(e.target.value)}
       />
-      <Button margin={[1, 3]} minW={['300px', '380px']}>
+      <Button
+        margin={[1, 3]}
+        isLoading={loading}
+        onClick={signUp}
+        minW={['300px', '380px']}
+      >
         Register
       </Button>
       <Button
