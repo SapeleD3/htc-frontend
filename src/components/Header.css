@@ -1,0 +1,14 @@
+.navbar{
+    background: transparent;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    z-index: 999;
+    color: #fff;
+}
+
+.navbar.active{
+    background-color: #fff;
+    transition: background-color 0.6s ease;
+    color: #000;
+}

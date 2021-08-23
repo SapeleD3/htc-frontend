@@ -8,7 +8,7 @@ export const htcTheme = extendTheme({
   styles: {
     global: () => ({
       body: {
-        fontFamily: 'Montserrat, sans-serif',
+        fontFamily: "'Comfortaa', cursive",
       },
     }),
   },
