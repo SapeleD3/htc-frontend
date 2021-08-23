@@ -7,7 +7,6 @@ const Benefits = () => {
         <>
             <Stack>
                 <Header />
-                <section id="benefits" />
                 <Box>
                     <Container maxW="container.lg">
                         <Text textAlign="center" fontWeight="bold" fontSize="1.5rem">

@@ -5,10 +5,6 @@ const Strategy = () => {
     return (
         <Box>
             <Container maxW="container.lg">
-                <Text textAlign="center" fontWeight="bold" fontSize="1.5rem">
-                    {" "}
-                    Company Strategy
-                </Text>
                 <br />
                 <Text textAlign="justify" fontSize="1rem" fontWeight="500">
                     Our strategy is prepared in accordance with the expected development in the

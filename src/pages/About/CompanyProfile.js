@@ -6,15 +6,6 @@ const CompanyProfile = () => {
         <>
             <Box>
                 <Container maxW="container.lg">
-                    <Text
-                        textAlign="center"
-                        fontSize="1.5rem"
-                        fontWeight="semibold"
-                        marginTop="20px"
-                        marginBottom="15px"
-                    >
-                        Company Profile
-                    </Text>
                     <Text textAlign="justify" fontSize="1rem" fontWeight="500">
                         Holograph Technology Services Ltd is an indigenous Nigerian company
                         registered under the Companies and Allied Matters Act 1990. <br /> <br />

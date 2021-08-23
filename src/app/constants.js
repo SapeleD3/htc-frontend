@@ -8,7 +8,8 @@ export const PUBLIC_PATHS = {
   REGISTER: '/auth/register',
   FORGOT_PASS: '/auth/forgot-password',
   ABOUT:'/about',
-  BENEFITS:'/benefit'
+  BENEFITS:'/benefit',
+  TEAM:'/team'
 };
 
 /**
