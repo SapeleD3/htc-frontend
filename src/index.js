@@ -5,12 +5,16 @@ import App from './App';
 import { ChakraProvider } from '@chakra-ui/react';
 import reportWebVitals from './reportWebVitals';
 import { htcTheme } from './styles/theme';
+import { Provider } from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider theme={htcTheme}>
-      <App />
-    </ChakraProvider>
+    <Provider store={store}>
+      <ChakraProvider theme={htcTheme}>
+        <App />
+      </ChakraProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

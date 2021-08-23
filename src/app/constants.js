@@ -7,9 +7,9 @@ export const PUBLIC_PATHS = {
   LOGIN: '/auth/login',
   REGISTER: '/auth/register',
   FORGOT_PASS: '/auth/forgot-password',
-  ABOUT:'/about',
-  BENEFITS:'/benefit',
-  TEAM:'/team'
+  ABOUT: '/about',
+  BENEFITS: '/benefit',
+  TEAM: '/team',
 };
 
 /**
@@ -17,5 +17,5 @@ export const PUBLIC_PATHS = {
  * @constant
  */
 export const PROTECTED_PATHS = {
-  HOME: '/user',
+  DASHBOARD: '/dashboard',
 };

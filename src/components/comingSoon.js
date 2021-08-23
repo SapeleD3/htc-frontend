@@ -3,7 +3,7 @@ import construction from '../assets/construction.png';
 
 export default function ComingSoon() {
   return (
-    <Box height='100vh' width='100%' bg='#c0dbe3'>
+    <Box height='100vh' width='100%' bg='white'>
       <Flex
         justifyContent='center'
         height='100vh'
