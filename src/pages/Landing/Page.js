@@ -49,7 +49,7 @@ const Page = () => {
                             <button
                                 className="j-btn"
                                 onClick={() => {
-                                    history.push(PUBLIC_PATHS.LOGIN);
+                                    history.push(PUBLIC_PATHS.REGISTER);
                                 }}
                             >
                                 Sign up
