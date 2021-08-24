@@ -18,4 +18,9 @@ export const PUBLIC_PATHS = {
  */
 export const PROTECTED_PATHS = {
   DASHBOARD: '/dashboard',
+  REFERRAL: '/network',
+  TRANSACTION: '/transactions',
+  PROFILE: '/profile',
+  HTSTV:'/hts-tv',
+  HTSACADEMY:'/hts-academy'
 };
