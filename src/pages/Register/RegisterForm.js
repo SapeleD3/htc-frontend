@@ -68,6 +68,7 @@ export default function RegisterForm() {
       />
       <CustomInput
         label='password'
+        type='password'
         placeholder='......'
         onChange={(e) => setPassword(e.target.value)}
       />

@@ -7,8 +7,16 @@
     display: none;
 }
 
+.linkActive {
+    background: #6C5ECE;
+}
+
 
 @media screen and (max-width: 960px) {
+    .linkActive {
+        background: #6C5ECE;
+    }
+    
     header {
         position: relative;
         padding: 20px 70px;
