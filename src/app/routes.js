@@ -8,10 +8,12 @@ import Benefits from '../pages/Benefits/Benefits';
 import Team from '../pages/Team/Team';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Referral from '../pages/Referral/Referral';
+import Transaction from '../pages/Transactions/Transaction';
+import Index from '../pages/Profile/index'
 
 const { LOGIN, REGISTER, FORGOT_PASS, LANDING, ABOUT, BENEFITS, TEAM } =
   PUBLIC_PATHS;
-const { DASHBOARD, REFERRAL } = PROTECTED_PATHS;
+const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
     path: LANDING,
@@ -56,5 +58,13 @@ export const PROTECTED_ROUTES = [
   {
     path: REFERRAL,
     page: Referral,
+  },
+  {
+    path: TRANSACTION,
+    page: Transaction,
+  },
+  {
+    path: PROFILE,
+    page: Index,
   },
 ];

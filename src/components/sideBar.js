@@ -8,9 +8,9 @@ import { PROTECTED_ROUTES } from '../app/routes';
 import { Flex, useMediaQuery, Text, Stack, Image } from '@chakra-ui/react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import NavBar from './NavBar';
-import { RiDashboardLine } from 'react-icons/ri';
 import logo from '../assets/logo.png';
 import firebase from '../firebase';
+import './Header.css'
 
 const { DASHBOARD } = PROTECTED_PATHS;
 
@@ -40,7 +40,7 @@ const SideBar = () => {
                 to={item.to}
                 _hover={{ background: '#6C5ECE', cursor: 'pointer' }}
               >
-                <RiDashboardLine size={25} color='white' />
+                <p size={25} color='white' >{item.icon} </p>
                 <Text ml={4} color='white' alignSelf='center'>
                   {item.name}
                 </Text>
@@ -50,7 +50,7 @@ const SideBar = () => {
               onClick={logoutUser}
               bottom={0}
               padding={4}
-              _hover={{ background: 'gray', cursor: 'pointer' }}
+              _hover={{ background: '#6C5ECE', cursor: 'pointer' }}
             >
               <img src={logout} loading='lazy' alt='' />
               <Text ml={4} color='white' alignSelf='center'>

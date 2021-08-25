@@ -1,30 +1,65 @@
 import React from "react";
-import { Box, Container, Text, Badge } from "@chakra-ui/layout";
+import { Box, Container, Text, Button } from "@chakra-ui/react";
+import { Badge, useDisclosure, Input } from "@chakra-ui/react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+} from "@chakra-ui/react";
 
-const Referral = () => {
+const Transaction = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-        <Box mt={5}>
-            <Container maxW="container.lg">
-                <Box>
-                    <Text color="#262626" fontSize="24px" fontStyle="bold">Your referral link</Text>
-                </Box>
+        <Box>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Withdraw</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Text>Account Name</Text>
+                        <Input type='text' placeholder='Roland Enola'/>
+                        <Text mt={2}>Account Number</Text>
+                        <Input type='text' placeholder='012345678'/>
+                        <Text mt={2}>Bank</Text>
+                        <Input type='text' placeholder='GTB'/>
+                       
+                    </ModalBody>
 
-                <Box marginTop="50px">
-                    <Text color="#262626" fontSize="24px" fontStyle="bold">
-                        People
-                    </Text>
-                    <Text color="#9C9C9C" fontSize="18px" fontStyle="bold">
-                        Users Registered under you
-                    </Text>
-                </Box>
-                <Box bg="#F6F6F8"  p={3} mt={5}>
-                <TableContainer>
+                    <ModalFooter>
+                        <Button>Confirm</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+            <Container maxW="container.lg" marginTop='50px'>
+                <Text fontSize='1rem' fontWeight='bold'>Availabe Balance: $40</Text>
+                <Text fontSize='1rem' fontWeight='bold' mt={2}>Withdrawal Balance: $40</Text>
+                <Button mt={5} onClick={onOpen}>Withdraw</Button>
+
+                <Text mt={5} fontSize="1rem" fontWeight="bold">
+                    {" "}
+                    Transaction History{" "}
+                </Text>
+                <Text color="#9C9C9C" fontSize="0.9rem" fontStyle="bold">
+                    View all your transactons below
+                </Text>
+                <Box
+                    w="100%"
+                    bg="#F6F6F8"
+                    p={3}
+                    mt={2}
+                >
+                      <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
                                 <TableRow>
@@ -64,4 +99,4 @@ const Referral = () => {
     );
 };
 
-export default Referral;
+export default Transaction;

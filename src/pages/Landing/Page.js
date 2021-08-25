@@ -4,19 +4,20 @@ import "./index.css";
 import hero from "../../assets/social.png";
 import benefit from "../../assets/benefits.png";
 import hand from "../../assets/do.png";
-import phone from "../../assets/phone.png";
 import Bounce from "react-reveal/Bounce";
 import { PUBLIC_PATHS } from "../../app/constants";
 import { useHistory } from "react-router";
+import { useMediaQuery } from "@chakra-ui/media-query";
 
 const Page = () => {
     const history = useHistory();
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
 
     return (
         <>
             <Box className="jumbotron">
                 <Container maxW="container.xl">
-                    <Flex flexWrap="wrap" direction={["column", "row"]}>
+                    <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
                         <Box pr={3}>
                             <Bounce>
                                 <Text
@@ -70,7 +71,7 @@ const Page = () => {
                             <Image
                                 src={hand}
                                 objectFit="contain"
-                                width="650px"
+                                width="550px"
                                 height="auto"
                                 position="relative"
                                 Left="30px"
@@ -81,10 +82,10 @@ const Page = () => {
                 </Container>
             </Box>
 
-            <Box w="100%" h="auto">
+            <Box w="100%" paddingBottom="45px">
                 <Container maxW="container.lg">
-                    <Flex flexWrap="wrap" direction={["column", "row"]}>
-                        <Box w="50%">
+                    <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
+                        <Box w={isNotSmallerScreen ? "50%" : "100%"}>
                             <Text
                                 style={{
                                     color: "#463A80",
@@ -95,9 +96,9 @@ const Page = () => {
                                 Our Mission
                             </Text>
                             <Text
+                                fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
                                 style={{
                                     color: "#747474",
-                                    fontSize: "1.2rem",
                                     textAlign: "left",
                                 }}
                             >
@@ -117,9 +118,9 @@ const Page = () => {
                                 Our Vision
                             </Text>
                             <Text
+                                fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
                                 style={{
                                     color: "#747474",
-                                    fontSize: "1.2rem",
                                     textAlign: "left",
                                 }}
                             >
@@ -140,35 +141,28 @@ const Page = () => {
                 </Container>
             </Box>
 
-            <Box w="100%" h="auto" paddingTop="150px" paddingBottom="150px">
+            <Box w="100%" id="object" bg="#F6F6F8" marginTop="50px" marginBottom="20px">
                 <Container maxW="container.lg">
-                    <Text
-                        style={{
-                            textAlign: "center",
-                            fontSize: "18px",
-                            fontWeight: "700",
-                            fontFamily: "poppins",
-                            color: "#463A80",
-                            textTransform: "uppercase",
-                        }}
-                    >
-                        Objectives
-                    </Text>
-                    <Flex flexWrap="wrap" direction={["column", "row"]}>
-                        <Image
-                            src={phone}
-                            objectFit="cover"
-                            width="650px"
-                            height="auto"
-                            marginLeft="50px"
-                        />
-                        <Spacer />
-                        <Box marginTop="150px">
+                    <Center>
+                        <Box p={5}>
+                            <Text
+                                style={{
+                                    textAlign: "center",
+                                    fontSize: "18px",
+                                    fontWeight: "700",
+                                    fontFamily: "poppins",
+                                    color: "#fff",
+                                    textTransform: "uppercase",
+                                }}
+                            >
+                                Objectives
+                            </Text>
                             <ol
                                 style={{
                                     fontSize: "1.2rem",
                                     fontWeight: "400",
-                                    lineHeight: "40px",
+                                    lineHeight: "30px",
+                                    color: "#fff",
                                 }}
                             >
                                 <li> Provide Skill Set Acquisition</li>
@@ -177,11 +171,11 @@ const Page = () => {
                                 <li> Enable Financial Freedom</li>
                             </ol>
                         </Box>
-                    </Flex>
+                    </Center>
                 </Container>
             </Box>
 
-            <Box w="100%" h="100vh">
+            <Box w="100%" h={isNotSmallerScreen ? "90vh" : "50vh"} marginTop='30px'>
                 <Container maxW="container.lg">
                     <Text
                         style={{
@@ -206,7 +200,11 @@ const Page = () => {
                         Why Choose Us?
                     </Text>
                     <Center>
-                        <Image src={benefit} objectFit="contain" />
+                        <Image
+                            src={benefit}
+                            boxSize="100%"
+                            objectFit={isNotSmallerScreen ? "contain" : "contain"}
+                        />
                     </Center>
                     <Text
                         textAlign="center"
