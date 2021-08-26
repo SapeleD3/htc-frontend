@@ -10,10 +10,11 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import Referral from '../pages/Referral/Referral';
 import Transaction from '../pages/Transactions/Transaction';
 import Index from '../pages/Profile/index'
+import HtsTv from '../pages/HtsTv/HtsTv';
 
 const { LOGIN, REGISTER, FORGOT_PASS, LANDING, ABOUT, BENEFITS, TEAM } =
   PUBLIC_PATHS;
-const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE } = PROTECTED_PATHS;
+const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
     path: LANDING,
@@ -58,6 +59,10 @@ export const PROTECTED_ROUTES = [
   {
     path: REFERRAL,
     page: Referral,
+  },
+  {
+    path: HTSTV,
+    page: HtsTv,
   },
   {
     path: TRANSACTION,

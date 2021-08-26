@@ -3,7 +3,7 @@ import { Container, Text, Box, Spacer, Spinner, Flex, Progress, Badge } from "@c
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { GiWallet } from "react-icons/gi";
-import { RiBankFill } from 'react-icons/ri'
+import { RiBankFill } from "react-icons/ri";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -52,13 +52,14 @@ const Dashboard = () => {
                     </Box>
                 </Flex>
 
-                <Box w="100%" >
-                    <Flex
-                        mt={5}
-                        direction={isNotSmallerScreen ? "row" : "column"}
-                     
-                    >
-                        <Box p={3} bg="#433976" borderRadius="10px"   w={isNotSmallerScreen ? '100%' : '100%'}>
+                <Box w="100%">
+                    <Flex mt={5} direction={isNotSmallerScreen ? "row" : "column"}>
+                        <Box
+                            p={3}
+                            bg="#433976"
+                            borderRadius="10px"
+                            w={isNotSmallerScreen ? "100%" : "100%"}
+                        >
                             <Flex>
                                 <Box marginTop="25px">
                                     <Text fontSize="18px" fontWeight="700" color="#fff">
@@ -87,51 +88,60 @@ const Dashboard = () => {
                             p={3}
                             bg="#F6F6F8"
                             borderRadius="10px"
-                            w={isNotSmallerScreen ? '100%' : '100%'}
+                            w={isNotSmallerScreen ? "100%" : "100%"}
                             ml={isNotSmallerScreen ? "5" : "0"}
                             mt={isNotSmallerScreen ? "0" : "4"}
                         >
-                           
-                            <RiBankFill style={{ fontSize: "59px", color: "#0D0D0F" }} />
-                            <Text fontStyle="bold" fontSize="2.5rem" ml={3} color="#0D0D0F">
-                                3
-                            </Text>
-                            <Text
-                                fontStyle="bold"
-                                fontWeight="bold"
-                                fontSize="0.9rem"
-                                color="#9A9A9C"
-                            >
-                                Transactions
-                            </Text>
+                            <Flex marginTop="20px">
+                                <RiBankFill style={{ fontSize: "59px", color: "#0D0D0F" }} />
+
+                                <Text
+                                    fontStyle="bold"
+                                    fontWeight="bold"
+                                    fontSize="0.9rem"
+                                    color="#9A9A9C"
+                                    mt={5}
+                                    ml={5}
+                                >
+                                    Transactions
+                                </Text>
+                                <Spacer />
+                                <Text fontStyle="bold" fontSize="3rem" mr={3} color="#0D0D0F">
+                                    3
+                                </Text>
+                            </Flex>
                         </Box>
 
                         <Box
                             bg="#6C5ECE"
                             borderRadius="10px"
-                            w={isNotSmallerScreen ? '100%' : '100%'}
+                            w={isNotSmallerScreen ? "100%" : "100%"}
                             p={4}
                             ml={isNotSmallerScreen ? "5" : "0"}
                             mt={isNotSmallerScreen ? "0" : "4"}
                         >
-                            <GiWallet style={{ color: "#fff", fontSize: "29px" }} />
-                            <Text fontSize="24px" fontStyle="bold" color="#fff " ml={3}>
-                                Wallet Balance
-                            </Text>
-                            <Spacer />
-                            <Text fontStyle="bold" color="#55FF2B" fontSize="48px" ml={3}>
-                                $40
-                            </Text>
+                            <Flex marginTop='20px'>
+                                <GiWallet style={{ color: "#fff", fontSize: "59px" }} />
+                                <Text
+                                    fontStyle="bold"
+                                    fontWeight="bold"
+                                    fontSize="0.9rem"
+                                    color="#fff"
+                                    mt={5}
+                                    ml={5}
+                                >
+                                    Wallet Balance
+                                </Text>
+                                <Spacer />
+                                <Text fontStyle="bold" color="#55FF2B" fontSize="2.5rem" ml={3}>
+                                    $40
+                                </Text>
+                            </Flex>
                         </Box>
                     </Flex>
                 </Box>
 
-                <Box
-                    bg="#F6F6F8"
-                    p={3}
-                    borderRadius="5px"
-                    mt={5}
-                >
+                <Box bg="#F6F6F8" p={3} borderRadius="5px" mt={5}>
                     <Text color="#262626" fontSize="24px" fontStyle="bold">
                         History
                     </Text>
