@@ -17,6 +17,8 @@ const { DASHBOARD } = PROTECTED_PATHS;
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [mobile] = useMediaQuery("(min-width: 800px)");
+	const [ active, setActive ] = useState('Dashboard')
+
 
     const logoutUser = async () => {
         await firebase.auth().signOut();
@@ -28,13 +30,16 @@ const SideBar = () => {
                 <>
                     <Flex flexDirection="column" paddingY={15}>
                         <Stack ml={4} mt={4} mb={15}>
-                            <Image src={logo} style={{ height: "40px", width: "60px" }} />
+                            <Image src={logo} style={{ height: "40px", width: "60px" }}  mb={3}/>
                         </Stack>
                         {NAV.map((item) => (
                             <Flex
                                 flex={1}
+                                onClick={()=> setActive(item.name)}
+                                className={ active === item.name ? 'linkActive' : ''}
                                 bottom={0}
                                 padding={4}
+                                mb={3}
                                 as={Link}
                                 key={nanoid()}
                                 to={item.to}

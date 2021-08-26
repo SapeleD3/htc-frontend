@@ -12,7 +12,7 @@ import { useMediaQuery } from "@chakra-ui/media-query";
 const Page = () => {
     const history = useHistory();
     const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
-
+    
     return (
         <>
             <Box className="jumbotron">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Container, Text, Button } from "@chakra-ui/react";
-import { Badge, useDisclosure, Input } from "@chakra-ui/react";
+import { Badge, useDisclosure, Input, Flex } from "@chakra-ui/react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -27,12 +27,23 @@ const Transaction = () => {
                     <ModalHeader>Withdraw</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Text>Account Name</Text>
-                        <Input type='text' placeholder='Roland Enola'/>
-                        <Text mt={2}>Account Number</Text>
-                        <Input type='text' placeholder='012345678'/>
-                        <Text mt={2}>Bank</Text>
-                        <Input type='text' placeholder='GTB'/>
+                        <Flex mb={1}>
+                        <Text fontSize='1.2rem' fontWeight='bold'>Account Name:</Text>
+                        <Text fontSize='1.2rem' fontWeight='bold' ml={3}>Roland Enola</Text>
+                        </Flex>
+
+                        <Flex  mb={1}>
+                        <Text fontSize='1.2rem' fontWeight='bold'>Account Number:</Text>
+                        <Text fontSize='1.2rem' fontWeight='bold' ml={3}>012345678</Text>
+                        </Flex>
+
+                        <Flex>
+                        <Text fontSize='1.2rem' fontWeight='bold'>Bank:</Text>
+                        <Text fontSize='1.2rem' fontWeight='bold' ml={3}>GTB</Text>
+                        </Flex>
+
+                        <Text mt={2}  fontSize='1.2rem' fontWeight='bold'>Amount</Text>
+                        <Input type='text' placeholder='$50'/>
                        
                     </ModalBody>
 

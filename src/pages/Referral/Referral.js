@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Text, Badge } from "@chakra-ui/layout";
+import { Box, Container, Text,  Avatar } from "@chakra-ui/react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -12,7 +12,9 @@ const Referral = () => {
         <Box mt={5}>
             <Container maxW="container.lg">
                 <Box>
-                    <Text color="#262626" fontSize="24px" fontStyle="bold">Your referral link</Text>
+                    <Text color="#262626" fontSize="24px" fontStyle="bold">
+                        Your referral link
+                    </Text>
                 </Box>
 
                 <Box marginTop="50px">
@@ -23,37 +25,36 @@ const Referral = () => {
                         Users Registered under you
                     </Text>
                 </Box>
-                <Box bg="#F6F6F8"  p={3} mt={5}>
-                <TableContainer>
+                <Box bg="#F6F6F8" p={3} mt={5}>
+                    <TableContainer>
                         <Table aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Type</TableCell>
-                                    <TableCell align="right">Date</TableCell>
-                                    <TableCell align="right">Amount</TableCell>
-                                    <TableCell align="right">Status</TableCell>
+                                    <TableCell></TableCell>
+                                    <TableCell align="left">Name</TableCell>
+                                    <TableCell align="left">Phone Number</TableCell>
+                                    <TableCell align="left">Level</TableCell>
+                                    <TableCell align="left">Referral link</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Withdrawal
+                                        <Avatar size="sm" />
                                     </TableCell>
-                                    <TableCell align="right">28th Agu, 2021</TableCell>
-                                    <TableCell align="right">$40</TableCell>
-                                    <TableCell align="right">
-                                        <Badge colorScheme="green">Completed</Badge>
-                                    </TableCell>
+                                    <TableCell align="left">Sapele Moses</TableCell>
+                                    <TableCell align="left">09083456781</TableCell>
+                                    <TableCell align="left">Basic</TableCell>
+                                    <TableCell align="left"> https://localhost:3000/moses</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell component="th" scope="row">
-                                        Withdrawal
+                                        <Avatar size="sm" />
                                     </TableCell>
-                                    <TableCell align="right">28th Agu, 2021</TableCell>
-                                    <TableCell align="right">$40</TableCell>
-                                    <TableCell align="right">
-                                        <Badge colorScheme="red">Uncompleted</Badge>
-                                    </TableCell>
+                                    <TableCell align="left">Sapele Moses</TableCell>
+                                    <TableCell align="left">09083456781</TableCell>
+                                    <TableCell align="left">Basic</TableCell>
+                                    <TableCell align="left"> https://localhost:3000/moses</TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>

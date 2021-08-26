@@ -24,10 +24,10 @@ const NavBar = (props) => {
     <NavBar.Wrapper>
       <button onClick={() => showSideBar()}>
         {' '}
-        <HiOutlineMenuAlt2 size={40}/>{' '}
+        <HiOutlineMenuAlt2 size={30}/>{' '}
       </button>
       <div className='holder'>
-        <Text textTransform='uppercase' fontWeight='bold' fontSize='36px'>
+        <Text textTransform='uppercase' fontWeight='bold' fontSize='26px'>
           {' '}
           {window.location.pathname.split('/')[1]}{' '}
         </Text>
@@ -35,11 +35,11 @@ const NavBar = (props) => {
       {nameload ? (
         <Spinner />
       ) : (
-        <Flex minWidth='220px' fontWeight='bold' fontSize='12px' display={isNotSmallerScreen ? 'flex' : 'none'}>
+        <Flex minWidth='520px' fontWeight='bold' fontSize='12px' display={isNotSmallerScreen ? 'flex' : 'none'}>
            <Input variant="filled" placeholder="Search..." mr={3}/>
           <IconButton isRound='true' icon={<IoNotifications/>} bg='white' marginTop='-3px'/>
           <Avatar size='sm' mr={3}/>
-          <Text fontSize='12px' fontWeight='700'>{userData.fullName}</Text>
+          <Text fontSize='12px' fontWeight='700' mr={4}>{userData.fullName}</Text>
         </Flex>
       )}
     </NavBar.Wrapper>

@@ -1,4 +1,5 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import BankDetails from "./BankDetails";
 import Profile from "./Profile";
 
 const Index = () => {
@@ -6,8 +7,8 @@ const Index = () => {
         <>
             <Tabs>
                 <TabList>
-                    <Tab>Profile</Tab>
-                    <Tab>Bank Details</Tab>
+                    <Tab fontSize='1rem' fontWeight='bold'>Profile</Tab>
+                    <Tab fontSize='1rem' fontWeight='bold'>Bank Details</Tab>
                 </TabList>
 
                 <TabPanels>
@@ -15,7 +16,7 @@ const Index = () => {
                       <Profile/>
                     </TabPanel>
                     <TabPanel>
-                        <p>two!</p>
+                        <BankDetails/>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
