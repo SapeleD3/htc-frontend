@@ -7,7 +7,6 @@ const Setup = () => {
 
     return (
         <Box>
-         
             <Flex direction={isNotSmallerScreen ? "row" : "column"}>
                 <Box w="100%" mb={isNotSmallerScreen ? "0" : "5"}>
                     <ReactPlayer
