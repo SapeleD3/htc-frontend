@@ -1,12 +1,16 @@
 import React from "react";
 import { Box, Text, Container } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/media-query";
+
 
 const CompanyProfile = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
     return (
         <>
             <Box>
                 <Container maxW="container.lg">
-                    <Text textAlign="justify" fontSize="1rem" fontWeight="500">
+                    <Text textAlign={isNotSmallerScreen ? "justify" : "left"} fontSize="1rem" fontWeight="500">
                         Holograph Technology Services Ltd is an indigenous Nigerian company
                         registered under the Companies and Allied Matters Act 1990. <br /> <br />
                         Holograph Technology Services Ltd is both a construction and Forex Training
@@ -58,7 +62,7 @@ const CompanyProfile = () => {
                             Risk Management System{" "}
                         </Text>
                         <br />
-                        <Text textAlign="justify" fontSize="1rem">
+                        <Text textAlign={isNotSmallerScreen ? "justify" : "left"}  fontSize="1rem">
                             At HTS, it’s our believe that in order for an individual to become a
                             successful trader, he or she must have a good understanding on the most
                             effective risk management strategies and as such, this system is
@@ -71,7 +75,7 @@ const CompanyProfile = () => {
                             Buyer/Seller Integration System
                         </Text>
                         <br />
-                        <Text fontSize="1rem" textAlign="justify">
+                        <Text fontSize="1rem"textAlign={isNotSmallerScreen ? "justify" : "left"} >
                             BSI system is an automated system that matches buy and sell orders from
                             different market participants. It connects individual traders, major
                             brokerages and tier-1 liquidity providers in the centralized order book
@@ -84,7 +88,7 @@ const CompanyProfile = () => {
                             Social media Platform
                         </Text>
                         <br />
-                        <Text textAlign="justify" fontSize="1rem">
+                        <Text textAlign={isNotSmallerScreen ? "justify" : "left"}  fontSize="1rem">
                             Our SMP platform (which includes, Youtube I.G, FB, Telgram, WhatsApp
                             etc.), is designed to create an interactive room between the
                             organization and its customers. This means every customer automatically
@@ -97,7 +101,7 @@ const CompanyProfile = () => {
                             Value-Added Services
                         </Text>
                         <br />
-                        <Text textAlign="justify" fontSize="1rem">
+                        <Text textAlign={isNotSmallerScreen ? "justify" : "left"}  fontSize="1rem">
                             HTS is dedicated to providing the fastest and most updated global
                             financial information and analysis services, including professional
                             strategy analysis, economic calendar, instant news, real-time quotes and

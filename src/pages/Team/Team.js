@@ -1,8 +1,15 @@
-import React from "react";
-import { Container, Box, Text, Grid, Center, Avatar } from "@chakra-ui/react";
+import React, {useEffect} from "react";
+import { Container, Box, Text, Center, Avatar, Flex } from "@chakra-ui/react";
 import Header from "../../components/Header";
+import { useMediaQuery } from "@chakra-ui/media-query";
 
 const Team = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+       }, [])
+
     return (
         <>
             <Header />
@@ -31,12 +38,12 @@ const Team = () => {
                 </Text>
                 <Box className="team-box">
                     <Container maxW="container.lg">
-                        <Grid templateColumns="repeat(3, 1fr)" gap={1}>
+                        <Flex mt={5} direction={isNotSmallerScreen ? "row" : "column"}>
                             <Box
                                 p={4}
-                                w="70%"
+                                w={isNotSmallerScreen ? "100%" : "100%"}
                                 className="team-member"
-                                marginTop="100px"
+                                mb={isNotSmallerScreen ? "0" : "5"}
                                 style={{
                                     borderRadius: "20px",
                                     background: "#fff",
@@ -64,9 +71,10 @@ const Team = () => {
 
                             <Box
                                 p={4}
-                                w="70%"
+                                w={isNotSmallerScreen ? "100%" : "100%"}
                                 className="team-member"
-                                marginTop="100px"
+                                ml={isNotSmallerScreen ? "5" : "0"}
+                                mb={isNotSmallerScreen ? "0" : "5"}
                                 style={{
                                     borderRadius: "20px",
                                     background: "#fff",
@@ -94,9 +102,9 @@ const Team = () => {
 
                             <Box
                                 p={4}
-                                w="70%"
+                                w={isNotSmallerScreen ? "100%" : "100%"}
                                 className="team-member"
-                                marginTop="100px"
+                                ml={isNotSmallerScreen ? "5" : "0"}
                                 style={{
                                     borderRadius: "20px",
                                     background: "#fff",
@@ -121,7 +129,7 @@ const Team = () => {
                                     Lead
                                 </Text>
                             </Box>
-                        </Grid>
+                        </Flex>
                     </Container>
                 </Box>
             </section>

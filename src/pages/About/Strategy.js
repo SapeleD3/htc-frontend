@@ -1,12 +1,15 @@
 import React from "react";
 import { Container, Box, Text } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/media-query";
+
 
 const Strategy = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
     return (
         <Box>
             <Container maxW="container.lg">
-                <br />
-                <Text textAlign="justify" fontSize="1rem" fontWeight="500">
+                <Text textAlign={isNotSmallerScreen ? "justify" : "left"} fontSize="1rem" fontWeight="500">
                     Our strategy is prepared in accordance with the expected development in the
                     industry as time dictates. Holograph Technology Services Ltd has set its targets
                     in such a way as to fully cope with the competitive environment and satisfy the
@@ -14,11 +17,11 @@ const Strategy = () => {
                     and service delivery.
                     <br />
                     <br />
-                    <Text fontWeight="bold" fontSize="1.5rem">
+                    <Text fontWeight="bold" fontSize="1rem">
                         {" "}
                         STRATEGIC PRIORITIES{" "}
                     </Text>
-                    <ul style={{ lineHeight: "50px" }}>
+                    <ul style={{ lineHeight: "30px" }}>
                         <li>
                             {" "}
                             Maintain the position of a significant company both in Forex Trading and

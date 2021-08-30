@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Header from "../../components/Header";
 import { Box, Container, Text, Stack } from "@chakra-ui/layout";
+import { useMediaQuery } from "@chakra-ui/media-query";
+
 
 const Benefits = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+       }, [])
+
     return (
         <>
             <Stack>
@@ -13,7 +21,7 @@ const Benefits = () => {
                             Why Choose Us
                         </Text>
                         <br/>
-                        <Text textAlign="justify" fontSize="1rem" fontWeight="500">
+                        <Text textAlign={isNotSmallerScreen ? "justify" : "left"}  fontSize="1rem" fontWeight="500">
                             Considering the current level of unemployment in Nigeria, compounded by
                             the adverse effect of Covid 19, it is important for not only young
                             people but for the general public not to rely solely on the Nigerian
