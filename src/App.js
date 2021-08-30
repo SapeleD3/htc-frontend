@@ -2,9 +2,10 @@ import React from 'react';
 import { AuthenticatedUserApp } from './app/components/authenticatedApp';
 import { UnAuthenticatedUserApp } from './app/components/unAuthenticatedApp';
 import Loading from './components/full-page-loader';
-import firebase from 'firebase';
 import { useDispatch } from 'react-redux';
 import { authSetUser } from './store/actions/authAction';
+import jwtDecode from 'jwt-decode';
+import http, { AUTH_ROUTES } from './services/api';
 
 const { useState, useEffect } = React;
 
@@ -15,23 +16,29 @@ function App() {
 
   useEffect(() => {
     // Handle user state changes
-    const onAuthStateChanged = async (user) => {
-      const userDoc = firebase.auth().currentUser;
-      if (userDoc) {
-        const userData = await firebase
-          .firestore()
-          .collection('users')
-          .doc(userDoc.uid)
-          .get();
-        const userInfo = userData.data();
-        dispatch(authSetUser(userInfo));
-        userInfo && setIsLoggedIn(true);
-      }
+    const getAuthData = async () => {
+      const {
+        data: { data },
+      } = await http.get(AUTH_ROUTES.USER);
+      const userInfo = data.userData;
+      dispatch(authSetUser(userInfo));
+      userInfo && setIsLoggedIn(true);
       if (checkingStatus) setCheckingStatus(false);
     };
 
-    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
+    const deleteTokenAndKickUserOut = async () => {
+      localStorage.removeItem('11#221#');
+      if (checkingStatus) setCheckingStatus(false);
+    };
+    const token = localStorage.getItem('11#221#');
+    if (token) {
+      const decoded = jwtDecode(token);
+      const expiryDate = new Date(decoded.exp * 1000);
+      return new Date() > expiryDate
+        ? deleteTokenAndKickUserOut()
+        : getAuthData();
+    }
+    return deleteTokenAndKickUserOut();
   }, [checkingStatus, dispatch]);
 
   if (checkingStatus) {

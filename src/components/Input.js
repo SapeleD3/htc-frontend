@@ -1,7 +1,13 @@
 import React from 'react';
 import { Input, Text, Box } from '@chakra-ui/react';
 
-export default function CustomInput({ label, placeholder, onChange }) {
+export default function CustomInput({
+  label,
+  placeholder,
+  onChange,
+  type,
+  value,
+}) {
   return (
     <Box padding={[1, 3]} minW={['300px', '380px']}>
       <Text ml={1} mb={2} letterSpacing={0.3} color='blackAlpha.700'>
@@ -14,6 +20,9 @@ export default function CustomInput({ label, placeholder, onChange }) {
           height: 40,
           width: '100%',
         }}
+        defaultValue={value}
+        disabled={value}
+        type={type}
         placeholder={placeholder}
         onChange={(e) => onChange(e)}
       />

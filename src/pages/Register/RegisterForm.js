@@ -2,35 +2,37 @@ import { Flex, Button, Text, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import CustomInput from '../../components/Input';
 import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { PUBLIC_PATHS } from '../../app/constants';
 import { signupUser } from './register.api';
 
 export default function RegisterForm() {
   const toast = useToast();
-  const location = window.location.origin;
   const history = useHistory();
+  const { username } = useParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhone] = useState('');
   const [userName, setUserName] = useState('');
   const [fullName, setFullName] = useState('');
-  const [referralLink, link] = useState('');
+  const [referralLink, setLink] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const signUp = () => {
-    signupUser(
-      setLoading,
-      {
-        phoneNumber,
-        email: email.toLowerCase(),
-        password,
-        userName,
-        fullName,
-        myLink: `${location}/${userName}`,
-        referralLink,
-      },
-      toast
-    );
+    const obj = {
+      phoneNumber,
+      email: email.toLowerCase(),
+      password,
+      userName,
+      fullName,
+    };
+    if (username) {
+      obj.referralLink = window.location.href;
+    }
+    if (referralLink) {
+      obj.referralLink = referralLink;
+    }
+    signupUser(setLoading, obj, toast);
   };
 
   return (
@@ -74,8 +76,9 @@ export default function RegisterForm() {
       />
       <CustomInput
         label='referral link (Optional)'
+        value={username ? window.location.href : null}
         placeholder='......'
-        onChange={(e) => link(e.target.value)}
+        onChange={(e) => setLink(e.target.value)}
       />
       <Button
         margin={[1, 3]}

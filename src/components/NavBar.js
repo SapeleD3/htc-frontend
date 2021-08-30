@@ -1,18 +1,25 @@
 import styled from '@emotion/styled';
-import { HiOutlineMenuAlt2 } from 'react-icons/hi'
-import { IoNotifications } from 'react-icons/io5'
+import { HiOutlineMenuAlt2 } from 'react-icons/hi';
+import { IoNotifications } from 'react-icons/io5';
 import PropTypes from 'prop-types';
-import { Flex, Spinner, Text, Avatar, IconButton, Input } from '@chakra-ui/react';
+import {
+  Flex,
+  Spinner,
+  Text,
+  Avatar,
+  IconButton,
+  Input,
+  InputGroup,
+  InputRightElement,
+} from '@chakra-ui/react';
+import { BiSearchAlt } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useMediaQuery  } from "@chakra-ui/media-query";
-
 
 const NavBar = (props) => {
   const [nameload, setNameLoad] = useState(true);
   const [userData, setUserData] = useState({});
   const user = useSelector((state) => state.auth.user);
-  const [isNotSmallerScreen ] = useMediaQuery("(min-width: 600px)") 
   const { showSideBar } = props;
 
   useEffect(() => {
@@ -24,10 +31,10 @@ const NavBar = (props) => {
     <NavBar.Wrapper>
       <button onClick={() => showSideBar()}>
         {' '}
-        <HiOutlineMenuAlt2 size={30}/>{' '}
+        <HiOutlineMenuAlt2 size={25} />{' '}
       </button>
       <div className='holder'>
-        <Text textTransform='uppercase' fontWeight='bold' fontSize='26px'>
+        <Text textTransform='uppercase' fontWeight='bold' fontSize='19px'>
           {' '}
           {window.location.pathname.split('/')[1]}{' '}
         </Text>
@@ -35,11 +42,33 @@ const NavBar = (props) => {
       {nameload ? (
         <Spinner />
       ) : (
-        <Flex minWidth='520px' fontWeight='bold' fontSize='12px' display={isNotSmallerScreen ? 'flex' : 'none'}>
-           <Input variant="filled" placeholder="Search..." mr={3}/>
-          <IconButton isRound='true' icon={<IoNotifications/>} bg='white' marginTop='-3px'/>
-          <Avatar size='sm' mr={3}/>
-          <Text fontSize='12px' fontWeight='700' mr={4}>{userData.fullName}</Text>
+        <Flex
+          minWidth='530px'
+          fontWeight='bold'
+          fontSize='12px'
+          display={['none', 'none', 'none', 'flex']}
+        >
+          <InputGroup
+            variant='filled'
+            size='sm'
+            width='300px'
+            borderRadius='2xl'
+            placeholder='Search...'
+            mr={3}
+          >
+            <Input borderRadius='2xl' placeholder='Enter amount' />
+            <InputRightElement children={<BiSearchAlt size={20} />} />
+          </InputGroup>
+          <IconButton
+            isRound='true'
+            icon={<IoNotifications />}
+            bg='white'
+            marginTop='-3px'
+          />
+          <Avatar size='sm' mr={3} />
+          <Text fontSize='13px' alignSelf='center' fontWeight='500' mr={4}>
+            {userData.fullName}
+          </Text>
         </Flex>
       )}
     </NavBar.Wrapper>
@@ -51,12 +80,12 @@ NavBar.Wrapper = styled.nav`
   background-color: #fff;
   padding-top: 26px;
   padding-bottom: 26px;
-  padding-left: 40px;
+  padding-left: 15px;
   position: sticky;
   top: 0;
   z-index: 10;
   @media only screen and (max-width: 600px) {
-    padding-left: 12px;
+    padding-left: 8px;
     padding-top: 16px;
     padding-bottom: 16px;
   }
