@@ -8,7 +8,7 @@ import { userLogin } from './login.api';
 export default function LoginForm() {
   const history = useHistory();
   const toast = useToast();
-  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
 
@@ -17,7 +17,7 @@ export default function LoginForm() {
     userLogin(
       setLoading,
       {
-        email,
+        userName,
         password,
       },
       toast
@@ -38,12 +38,13 @@ export default function LoginForm() {
         HTS LOGIN
       </Text>
       <CustomInput
-        label='email'
-        placeholder='example@emm'
-        onChange={(e) => setEmail(e.target.value)}
+        label='username'
+        placeholder='unique username'
+        onChange={(e) => setUserName(e.target.value)}
       />
       <CustomInput
         label='password'
+        type='password'
         placeholder='......'
         onChange={(e) => setPassword(e.target.value)}
       />

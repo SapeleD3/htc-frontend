@@ -1,11 +1,14 @@
-import firebase from '../../firebase';
 import { NotifyHandler } from '../constants';
+import http, { AUTH_ROUTES } from '../../services/api';
 
 export const userLogin = async (setloading, userDetails, toast) => {
   try {
-    const { email, password } = userDetails;
-    await firebase.auth().signInWithEmailAndPassword(email, password);
+    const {
+      data: { data },
+    } = await http.post(AUTH_ROUTES.LOGIN, userDetails);
+    localStorage.setItem('11#221#', data.token);
     setloading(false);
+    return (window.location.href = '/dashboard');
   } catch (error) {
     setloading(false);
     return NotifyHandler(toast, 'error', 'invalid credentials');
@@ -13,5 +16,6 @@ export const userLogin = async (setloading, userDetails, toast) => {
 };
 
 export const logoutUser = async () => {
-  await firebase.auth().signOut();
+  localStorage.removeItem('11#221#');
+  window.location.href = '/auth/login';
 };

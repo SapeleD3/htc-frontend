@@ -10,6 +10,7 @@ export const PUBLIC_PATHS = {
   ABOUT: '/about',
   BENEFITS: '/benefit',
   TEAM: '/team',
+  REFERRAL_REGISTER: '/network/:username',
 };
 
 /**
@@ -21,6 +22,6 @@ export const PROTECTED_PATHS = {
   REFERRAL: '/network',
   TRANSACTION: '/transactions',
   PROFILE: '/profile',
-  HTSTV:'/hts-tv',
-  HTSACADEMY:'/hts-academy'
+  HTSTV: '/hts-tv',
+  HTSACADEMY: '/hts-academy',
 };
