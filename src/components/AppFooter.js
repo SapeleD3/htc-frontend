@@ -1,8 +1,11 @@
 import React from "react";
 import { Box, Stack, Flex, Text, Container, Center, Spacer, Image } from "@chakra-ui/react";
-import logo from '../assets/logo.png'
+import logo from "../assets/logo.png";
+import { useMediaQuery } from "@chakra-ui/media-query";
 
 export default function AppFooter() {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
     return (
         <Stack
             position="relative"
@@ -14,23 +17,41 @@ export default function AppFooter() {
             padding="3"
         >
             <Box>
-              <Center>
-                <Image src={logo}/>
-              </Center>
-                <Text textAlign="center" fontSize='1rem' fontWeight='bold' mt={5}>HOLLOGRAPH TECHNOLOGIES SERVICES</Text>
+                <Center>
+                    <Image src={logo} />
+                </Center>
+                <Text textAlign="center" fontSize="1rem" fontWeight="bold" mt={5}>
+                    HOLLOGRAPH TECHNOLOGIES SERVICES
+                </Text>
                 <Container maxW="container.lg">
                     <Center mt={5}>
-                        <Flex flexWrap="wrap" direction={["column", "row"]}>
-                            <Text fontSize="0.9rem">
+                        <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
+                            <Text fontSize={isNotSmallerScreen ? "0.9rem" : "0.7rem"}>
                                 Address: Mercy Plaza, #573, Melford Okilo Road, <br /> Opposite
                                 Arizona Filling Station, Yenizue-Gene, Yenagoa, Bayelsa State.
                             </Text>
                             <Spacer />
-                            <Text ml={5} fontSize='0.9rem'> Email: Hollographtecnologiesservice@gmail.com</Text>
+                            <Box>
+                                <Text
+                                 mt={isNotSmallerScreen ? "0" : "2"}
+                                    ml={isNotSmallerScreen ? "5" : "0"}
+                                    fontSize={isNotSmallerScreen ? "0.9rem" : "0.7rem"}
+                                >
+                                    {" "}
+                                    Email: Hollographtecnologiesservice@gmail.com
+                                </Text>
+                                <Text
+                                    fontSize={isNotSmallerScreen ? "0.9rem" : "0.7rem"}
+                                    mt={isNotSmallerScreen ? "0" : "2"}
+                                    textAlign="left"
+                                    ml={isNotSmallerScreen ? "5" : "0"}
+                                >
+                                    {" "}
+                                    Phone: +234-8037682526, 08171159496{" "}
+                                </Text>
+                            </Box>
                         </Flex>
-                       
                     </Center>
-                    <Text fontSize='0.9rem' textAlign='center' mt={5}> Phone: +234-8037682526, 08171159496 </Text>
                 </Container>
                 <Flex flexWrap="wrap" direction={["column", "row"]}>
                     <Text margin="0,5" fontSize="10" fontWeight="light">

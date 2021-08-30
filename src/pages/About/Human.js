@@ -1,13 +1,15 @@
 import React from "react";
 import { Box, Container, Text } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/media-query";
+
 
 const Human = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
     return (
         <Box>
             <Container maxW="container.lg">
-                <Text textAlign="justify" fontSize='1rem' fontWeight='500'>
-                <br />
-                    <br/>
+                <Text textAlign={isNotSmallerScreen ? "justify" : "left"} fontSize='1rem' fontWeight='500'>
                     We offer an opportunity to those who are eager to be involved in our success
                     and, at the same time, wish to obtain unique professional experience/exposure.
                     By inference, we offer jobs to creative and enterprising people that would build
@@ -16,7 +18,7 @@ const Human = () => {
                     <br/>
                     We offers the following to our employees:
                     <br />
-                    <ul style={{ lineHeight:'50px'}}>
+                    <ul style={{ lineHeight:'40px'}}>
                         <li>
                             {" "}
                             permanent professional growth through further education and training,
