@@ -27,6 +27,7 @@ export default function FreeDashboard() {
   const [reference, setReference] = useState('');
   const [transId, setTransactionId] = useState('');
   const [loading, setLoading] = useState(false);
+  const [verifyLoading, setVerifyLoading] = useState(false);
   const user = useSelector((state) => state.auth.user);
 
   const config = {
@@ -86,6 +87,7 @@ export default function FreeDashboard() {
 
   const verifyPayment = async (refere) => {
     try {
+      setVerifyLoading(true);
       setLoading(true);
       const {
         data: { message },
@@ -95,10 +97,12 @@ export default function FreeDashboard() {
       });
       closeModal();
       setLoading(false);
+      setVerifyLoading(false);
       getAuthData();
       return NotifyHandler(toast, 'success', message);
     } catch (error) {
       setLoading(false);
+      setVerifyLoading(false);
       const message = error.response.data.message || 'something went wrong';
       return NotifyHandler(toast, 'error', message);
     }
@@ -239,7 +243,7 @@ export default function FreeDashboard() {
             <Button colorScheme='secondary' mr={3} onClick={closeModal}>
               no
             </Button>
-            <Button variant='ghost' onClick={pay}>
+            <Button variant='ghost' isLoading={verifyLoading} onClick={pay}>
               Yes.
             </Button>
           </ModalFooter>

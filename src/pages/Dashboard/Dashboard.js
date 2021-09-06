@@ -76,7 +76,7 @@ const Dashboard = () => {
               borderRadius='10px'
               w='330px'
             >
-              {user.networks.map((val) => (
+              {user?.sNetworks?.networkLink ? (
                 <Flex key={nanoid()}>
                   <Box marginTop='25px'>
                     <Text
@@ -90,7 +90,7 @@ const Dashboard = () => {
                     </Text>
                     <Button
                       title='Send this link to your customers so they can order from your store online'
-                      onClick={() => copyLink(val.networkLink)}
+                      onClick={() => copyLink(user?.sNetworks?.networkLink)}
                       color='white'
                       px={4}
                     >
@@ -107,7 +107,9 @@ const Dashboard = () => {
                     color='white'
                   />
                 </Flex>
-              ))}
+              ) : (
+                ''
+              )}
             </Box>
 
             <Box
@@ -116,31 +118,30 @@ const Dashboard = () => {
               mr={['none', '20px']}
               mb='20px'
               borderRadius='10px'
-              w='330px'
+              w='260px'
             >
-              <Flex marginTop='20px'>
+              <Flex mt={5}>
                 <RiBankFill style={{ fontSize: '59px', color: '#0D0D0F' }} />
-
-                <Text
-                  fontStyle='bold'
-                  fontWeight='bold'
-                  fontSize='0.9rem'
-                  color='#9A9A9C'
-                  mt={5}
-                  ml={5}
-                >
-                  Transactions
-                </Text>
-                <Spacer />
-                <Text
-                  fontStyle='bold'
-                  fontSize='2rem'
-                  alignSelf='center'
-                  mr={3}
-                  color='#0D0D0F'
-                >
-                  3
-                </Text>
+                <Flex flexDir='column' ml={4}>
+                  <Text
+                    fontStyle='bold'
+                    fontWeight='bold'
+                    fontSize='0.9rem'
+                    color='#0D0D0F'
+                  >
+                    Transactions
+                  </Text>
+                  <Spacer />
+                  <Text
+                    fontStyle='bold'
+                    fontSize='2rem'
+                    alignSelf='left'
+                    mr={3}
+                    color='#0D0D0F'
+                  >
+                    3
+                  </Text>
+                </Flex>
               </Flex>
             </Box>
 
@@ -150,30 +151,29 @@ const Dashboard = () => {
               mr={['none', '20px']}
               mb='20px'
               p={4}
-              w='330px'
+              w='260px'
             >
-              <Flex marginTop='20px'>
+              <Flex mt={5}>
                 <GiWallet style={{ color: '#fff', fontSize: '59px' }} />
-                <Text
-                  fontStyle='bold'
-                  fontWeight='bold'
-                  fontSize='0.9rem'
-                  color='#fff'
-                  mt={5}
-                  ml={5}
-                >
-                  Wallet Balance
-                </Text>
-                <Spacer />
-                <Text
-                  fontStyle='bold'
-                  color='#55FF2B'
-                  alignSelf='center'
-                  fontSize='2rem'
-                  ml={3}
-                >
-                  $40
-                </Text>
+                <Flex flexDir='column' ml={4}>
+                  <Text
+                    fontStyle='bold'
+                    fontWeight='bold'
+                    fontSize='0.9rem'
+                    color='#fff'
+                  >
+                    Wallet Balance
+                  </Text>
+                  <Spacer />
+                  <Text
+                    fontStyle='bold'
+                    color='#55FF2B'
+                    alignSelf='left'
+                    fontSize='1.5rem'
+                  >
+                    $40
+                  </Text>
+                </Flex>
               </Flex>
             </Box>
           </Flex>

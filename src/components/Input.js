@@ -6,11 +6,17 @@ export default function CustomInput({
   placeholder,
   onChange,
   type,
+  type2,
   value,
 }) {
   return (
     <Box padding={[1, 3]} minW={['300px', '380px']}>
-      <Text ml={1} mb={2} letterSpacing={0.3} color='blackAlpha.700'>
+      <Text
+        ml={1}
+        mb={2}
+        letterSpacing={0.3}
+        color={type2 ? 'white' : 'blackAlpha.700'}
+      >
         {label}
       </Text>
       <Input
@@ -20,6 +26,7 @@ export default function CustomInput({
           height: 40,
           width: '100%',
         }}
+        color={type2 ? 'white' : ''}
         defaultValue={value}
         disabled={value}
         type={type}
