@@ -1,12 +1,16 @@
 import React from "react";
 import { Container, Box, Text } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/media-query";
+
 
 const Management = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
+
     return (
         <>
             <Box>
                 <Container maxW="container.lg">
-                    <Text fontSize="1rem" fontWeight="500" textAlign="justify">
+                    <Text fontSize="1rem" fontWeight="500" textAlign={isNotSmallerScreen ? "justify" : "left"}>
                         The management organs of Holograph Technology Services Ltd is primarily
                         saddled with the responsibility of decision-making, headed by a chairman/CEO
                         and other departmental Managers.
@@ -22,7 +26,7 @@ const Management = () => {
                         resolutions of: the general meeting.
                         <br />
                         <br />
-                        <ul style={{ lineHeight:'40px'}}>
+                        <ul style={{ lineHeight:'30px'}}>
                             <li>Proposals of long-term development. </li>
                             <li>
                                 {" "}
