@@ -6,23 +6,26 @@ import { useDispatch } from 'react-redux';
 import { authSetUser } from './store/actions/authAction';
 import jwtDecode from 'jwt-decode';
 import http, { AUTH_ROUTES } from './services/api';
+import { AuthenticatedAdminApp } from './app/components/authenticatedAdminApp';
 
 const { useState, useEffect } = React;
 
 function App() {
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
 
   useEffect(() => {
     // Handle user state changes
-    const getAuthData = async () => {
+    const getAuthData = async (admin) => {
       const {
         data: { data },
-      } = await http.get(AUTH_ROUTES.USER);
+      } = await http.get(admin ? AUTH_ROUTES.ADMIN : AUTH_ROUTES.USER);
       const userInfo = data.userData;
       dispatch(authSetUser(userInfo));
       userInfo && setIsLoggedIn(true);
+      userInfo.userType === 'admin' && setIsAdmin(true);
       if (checkingStatus) setCheckingStatus(false);
     };
 
@@ -36,7 +39,7 @@ function App() {
       const expiryDate = new Date(decoded.exp * 1000);
       return new Date() > expiryDate
         ? deleteTokenAndKickUserOut()
-        : getAuthData();
+        : getAuthData(decoded.isAdmin);
     }
     return deleteTokenAndKickUserOut();
   }, [checkingStatus, dispatch]);
@@ -45,7 +48,11 @@ function App() {
     return <Loading />;
   }
 
-  if (isLoggedIn) {
+  if (isLoggedIn && isAdmin) {
+    return <AuthenticatedAdminApp />;
+  }
+
+  if (isLoggedIn && !isAdmin) {
     return <AuthenticatedUserApp />;
   }
 

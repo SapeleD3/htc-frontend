@@ -1,4 +1,4 @@
-import { PROTECTED_PATHS } from '../app/constants';
+import { PROTECTED_PATHS, ADMIN_PATHS } from '../app/constants';
 import { RiDashboardLine } from 'react-icons/ri';
 import { FaNetworkWired } from 'react-icons/fa';
 import { CgScreen, CgProfile } from 'react-icons/cg';
@@ -7,6 +7,8 @@ import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSACADEMY, HTSTV } =
   PROTECTED_PATHS;
+
+const { DASHBOARD: ADMIN_DASH } = ADMIN_PATHS;
 export const NAV = [
   {
     name: 'Dashboard',
@@ -53,4 +55,10 @@ export const FREE_NAV = [
   },
 ];
 
-
+export const ADMIN_NAV = [
+  {
+    name: 'Dashboard',
+    to: ADMIN_DASH,
+    icon: <RiDashboardLine size={25} color='white' />,
+  },
+];
