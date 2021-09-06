@@ -52,3 +52,5 @@ export const FREE_NAV = [
     icon: <CgProfile size={25} color='white' />,
   },
 ];
+
+

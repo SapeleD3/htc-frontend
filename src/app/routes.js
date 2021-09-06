@@ -98,3 +98,5 @@ export const FREE_ROUTES = [
     page: Index,
   },
 ];
+
+
