@@ -5,6 +5,7 @@
 export const PUBLIC_PATHS = {
   LANDING: '/',
   LOGIN: '/auth/login',
+  ADMIN_LOGIN: '/admin/auth/login',
   REGISTER: '/auth/register',
   FORGOT_PASS: '/auth/forgot-password',
   ABOUT: '/about',
@@ -24,4 +25,12 @@ export const PROTECTED_PATHS = {
   PROFILE: '/profile',
   HTSTV: '/hts-tv',
   HTSACADEMY: '/hts-academy',
+};
+
+/**
+ * Paths available to users who are not logged in
+ * @constant
+ */
+export const ADMIN_PATHS = {
+  DASHBOARD: '/admin/dashboard',
 };

@@ -2,7 +2,7 @@ import ComingSoon from '../components/comingSoon';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Landing from '../pages/Landing';
-import { PUBLIC_PATHS, PROTECTED_PATHS } from './constants';
+import { PUBLIC_PATHS, PROTECTED_PATHS, ADMIN_PATHS } from './constants';
 import About from '../pages/About/About';
 import Benefits from '../pages/Benefits/Benefits';
 import Team from '../pages/Team/Team';
@@ -12,6 +12,7 @@ import Referral from '../pages/Referral/Referral';
 import Transaction from '../pages/Transactions/Transaction';
 import Index from '../pages/Profile/index';
 import HtsTv from '../pages/HtsTv/HtsTv';
+import AdminLogin from '../adminPages/login';
 
 const {
   LOGIN,
@@ -21,8 +22,10 @@ const {
   ABOUT,
   BENEFITS,
   TEAM,
+  ADMIN_LOGIN,
   REFERRAL_REGISTER,
 } = PUBLIC_PATHS;
+const { DASHBOARD: ADMIN_DASHBOARD } = ADMIN_PATHS;
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
@@ -33,6 +36,12 @@ export const PUBLIC_ROUTES = [
   {
     path: REFERRAL_REGISTER,
     page: Register,
+    exact: true,
+  },
+
+  {
+    path: ADMIN_LOGIN,
+    page: AdminLogin,
     exact: true,
   },
   {
@@ -96,5 +105,12 @@ export const FREE_ROUTES = [
   {
     path: PROFILE,
     page: Index,
+  },
+];
+
+export const ADMIN_ROUTES = [
+  {
+    path: ADMIN_DASHBOARD,
+    page: ComingSoon,
   },
 ];

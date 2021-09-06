@@ -4,11 +4,11 @@ import SideBar from '../../components/sideBar';
 
 const { DASHBOARD } = ADMIN_PATHS;
 
-export function AuthenticatedUserApp() {
+export function AuthenticatedAdminApp() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={'/'}>
+        <Route path={'/admin'}>
           <SideBar />
         </Route>
         <Redirect from='/*' to={DASHBOARD} />

@@ -2,9 +2,9 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
 import logout from '../assets/Logout.svg';
 import ReactSideBar from 'react-sidebar';
-import { PROTECTED_PATHS } from '../app/constants';
-import { NAV, FREE_NAV } from './constants';
-import { PROTECTED_ROUTES, FREE_ROUTES } from '../app/routes';
+import { PROTECTED_PATHS, ADMIN_PATHS } from '../app/constants';
+import { NAV, FREE_NAV, ADMIN_NAV } from './constants';
+import { PROTECTED_ROUTES, FREE_ROUTES, ADMIN_ROUTES } from '../app/routes';
 import { Flex, useMediaQuery, Text, Stack, Image } from '@chakra-ui/react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -14,6 +14,7 @@ import './Header.css';
 import { useSelector } from 'react-redux';
 
 const { DASHBOARD } = PROTECTED_PATHS;
+const { DASHBOARD: ADMIN_DASHBOARD } = ADMIN_PATHS;
 
 const SideBar = () => {
   const user = useSelector((state) => state.auth.user);
@@ -33,7 +34,29 @@ const SideBar = () => {
                 mb={3}
               />
             </Stack>
-            {user.activatedUser
+            {user.userType === 'admin'
+              ? ADMIN_NAV.map((item) => (
+                  <Flex
+                    flex={1}
+                    onClick={() => setActive(item.name)}
+                    className={active === item.name ? 'linkActive' : ''}
+                    bottom={0}
+                    padding={4}
+                    mb={3}
+                    as={Link}
+                    key={nanoid()}
+                    to={item.to}
+                    _hover={{ background: '#6C5ECE', cursor: 'pointer' }}
+                  >
+                    <p size={25} color='white' loading='lazy'>
+                      {item.icon}{' '}
+                    </p>
+                    <Text ml={4} color='white' alignSelf='center'>
+                      {item.name}
+                    </Text>
+                  </Flex>
+                ))
+              : user.activatedUser
               ? NAV.map((item) => (
                   <Flex
                     flex={1}
@@ -105,7 +128,13 @@ const SideBar = () => {
       <div className='padding-0 background-color-4' style={{ height: '100vh' }}>
         <NavBar showSideBar={() => setIsOpen(true)} />
         <Switch>
-          {user.activatedUser
+          {user.userType === 'admin'
+            ? ADMIN_ROUTES.map(({ page: Component, path: route, exact }) => (
+                <Route exact={exact} key={nanoid()} path={route}>
+                  <Component showSideBar={() => setIsOpen(true)} />
+                </Route>
+              ))
+            : user.activatedUser
             ? PROTECTED_ROUTES.map(
                 ({ page: Component, path: route, exact }) => (
                   <Route exact={exact} key={nanoid()} path={route}>
@@ -120,7 +149,9 @@ const SideBar = () => {
               ))}
 
           <Route exact path='/*'>
-            <Redirect to={DASHBOARD} />
+            <Redirect
+              to={user.userType === 'admin' ? ADMIN_DASHBOARD : DASHBOARD}
+            />
           </Route>
         </Switch>
       </div>
