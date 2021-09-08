@@ -17,10 +17,10 @@ const { DASHBOARD } = PROTECTED_PATHS;
 const { DASHBOARD: ADMIN_DASHBOARD } = ADMIN_PATHS;
 
 const SideBar = () => {
-  const user = useSelector((state) => state.auth.user);
-  const [isOpen, setIsOpen] = useState(false);
-  const [mobile] = useMediaQuery('(min-width: 800px)');
-  const [active, setActive] = useState('Dashboard');
+    const user = useSelector((state) => state.auth.user);
+    const [isOpen, setIsOpen] = useState(false);
+    const [mobile] = useMediaQuery("(min-width: 800px)");
+    const [active, setActive] = useState("Dashboard");
 
   return (
     <ReactSideBar

@@ -4,11 +4,13 @@ import { FaNetworkWired } from 'react-icons/fa';
 import { CgScreen, CgProfile } from 'react-icons/cg';
 import { HiOutlineAcademicCap } from 'react-icons/hi';
 import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import { IoCreateOutline  } from 'react-icons/io5'
+import { IoIosPeople } from 'react-icons/io'
 
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSACADEMY, HTSTV } =
   PROTECTED_PATHS;
 
-const { DASHBOARD: ADMIN_DASH } = ADMIN_PATHS;
+const { DASHBOARD: ADMIN_DASH, POST: ADMIN_POST, PEOPLE } = ADMIN_PATHS;
 export const NAV = [
   {
     name: 'Dashboard',
@@ -60,5 +62,15 @@ export const ADMIN_NAV = [
     name: 'Dashboard',
     to: ADMIN_DASH,
     icon: <RiDashboardLine size={25} color='white' />,
+  },
+  {
+    name: 'Create',
+    to: ADMIN_POST,
+    icon: <IoCreateOutline size={25} color='white' />,
+  },
+  {
+    name: 'People',
+    to: PEOPLE,
+    icon: <IoIosPeople size={25} color='white' />,
   },
 ];

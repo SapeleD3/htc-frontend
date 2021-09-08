@@ -33,4 +33,6 @@ export const PROTECTED_PATHS = {
  */
 export const ADMIN_PATHS = {
   DASHBOARD: '/admin/dashboard',
+  POST:'/admin/create',
+  PEOPLE: '/admin/people'
 };
