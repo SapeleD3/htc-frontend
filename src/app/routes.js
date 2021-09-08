@@ -13,6 +13,8 @@ import Transaction from '../pages/Transactions/Transaction';
 import Index from '../pages/Profile/index';
 import HtsTv from '../pages/HtsTv/HtsTv';
 import AdminLogin from '../adminPages/login';
+import Post from '../adminPages/Post/Post';
+import People from '../adminPages/People/People';
 
 const {
   LOGIN,
@@ -25,7 +27,7 @@ const {
   ADMIN_LOGIN,
   REFERRAL_REGISTER,
 } = PUBLIC_PATHS;
-const { DASHBOARD: ADMIN_DASHBOARD } = ADMIN_PATHS;
+const { DASHBOARD: ADMIN_DASHBOARD, POST: ADMIN_POST, PEOPLE } = ADMIN_PATHS;
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
@@ -112,5 +114,13 @@ export const ADMIN_ROUTES = [
   {
     path: ADMIN_DASHBOARD,
     page: ComingSoon,
+  },
+  {
+    path: ADMIN_POST,
+    page: Post,
+  },
+  {
+    path: PEOPLE,
+    page: People,
   },
 ];
