@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/layout';
 import Tree from 'react-d3-tree';
-import { FaUser } from 'react-icons/fa';
 import { useCenteredTree } from '../helper';
 
 // This is a simplified example of an org chart with a depth of 2.
