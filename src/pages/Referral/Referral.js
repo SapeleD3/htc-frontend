@@ -1,91 +1,108 @@
-import React from "react";
-import { Box, Container, Text, Avatar, Flex, Progress } from "@chakra-ui/react";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import React from 'react';
+import {
+  Container,
+  useToast,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+} from '@chakra-ui/react';
+import styled from '@emotion/styled';
+import http, { AUTH_ROUTES } from '../../services/api';
+import { NotifyHandler } from '../constants';
+import FullPageLoader from '../../components/full-page-loader';
+import ReferralTable from './components/Table';
+import { nanoid } from 'nanoid';
+import ReferralTree from './components/Tree';
 
 const Referral = () => {
-    return (
-        <Box mt={5}>
-            <Container maxW="container.lg">
-                <Box>
-                    <Text color="#262626" fontSize="24px" fontStyle="bold">
-                        Your referral link
-                    </Text>
-                </Box>
+  const toast = useToast();
+  const [loading, setLoading] = React.useState(true);
+  const [network, setNetwork] = React.useState(true);
+  React.useEffect(() => {
+    const getNetworkMembers = async () => {
+      try {
+        const {
+          data: { data },
+        } = await http.get(AUTH_ROUTES.NETWORK);
+        setNetwork(data.Network);
+        setLoading(false);
+      } catch (e) {
+        NotifyHandler(toast, 'error', 'something went wrong');
+        setLoading(false);
+      }
+    };
+    getNetworkMembers();
+  }, [toast]);
 
-                <Box marginTop="50px">
-                    <Text color="#262626" fontSize="24px" fontStyle="bold">
-                        People
-                    </Text>
-                    <Text color="#9C9C9C" fontSize="18px" fontStyle="bold">
-                        Users Registered under you
-                    </Text>
-                </Box>
-                <Box bg="#F6F6F8" p={3} mt={5}>
-                    <TableContainer>
-                        <Table aria-label="simple table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="left">Name</TableCell>
-                                    <TableCell align="left">Phone Number</TableCell>
-                                    <TableCell align="left">Level</TableCell>
-                                    <TableCell align="left">Referral link</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell align="left" component="th" scope="row">
-                                        <Flex>
-                                            <Avatar size="sm" />
-                                            <Text ml={1} mt={1}>
-                                                {" "}
-                                                Sapele Moses{" "}
-                                            </Text>
-                                        </Flex>
-                                    </TableCell>
-                                    <TableCell align="left">09083456781</TableCell>
-                                    <TableCell align="left">
-                                        Basic
-                                        <br />
-                                        <Progress hasStripe value={64} />
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {" "}
-                                        https://localhost:3000/moses
-                                    </TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell align="left" component="th" scope="row">
-                                        <Flex>
-                                            <Avatar size="sm" />
-                                            <Text ml={1} mt={1}>
-                                                {" "}
-                                                Sapele Moses{" "}
-                                            </Text>
-                                        </Flex>
-                                    </TableCell>
-                                    <TableCell align="left">09083456781</TableCell>
-                                    <TableCell align="left">
-                                        Basic
-                                        <br />
-                                        <Progress hasStripe value={64} />
-                                    </TableCell>
-                                    <TableCell align="left">
-                                        {" "}
-                                        https://localhost:3000/moses
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Box>
-            </Container>
-        </Box>
-    );
+  const navItems = [{ name: 'Tree' }, { name: 'Table' }];
+  return loading ? (
+    <FullPageLoader />
+  ) : (
+    <Referral.Wrapper>
+      <Tabs variant='soft-rounded' colorScheme='green'>
+        <TabList className='nav'>
+          {navItems.map((menu) => (
+            <Tab className='tab' key={nanoid()}>
+              {menu.name}
+            </Tab>
+          ))}
+        </TabList>
+        <Container maxW='container.lg'>
+          <TabPanels>
+            <TabPanel className='tab-panel'>
+              <ReferralTree net={network} />
+            </TabPanel>
+            <TabPanel className='tab-panel'>
+              <ReferralTable net={network.children} />
+            </TabPanel>
+          </TabPanels>
+        </Container>
+      </Tabs>
+    </Referral.Wrapper>
+  );
 };
+
+Referral.Wrapper = styled.div`
+  .nav {
+    background-color: #fff;
+    border-top: 1px solid #e2e2ea;
+    border-bottom: 1px solid #e2e2ea;
+    padding: 1rem 0;
+    padding-left: 32px;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 12px;
+      padding-left: 12px;
+      overflow: scroll;
+    }
+
+    .tab {
+      all: unset;
+      border-bottom: 3px solid transparent;
+      margin-right: 28px;
+      color: #6d6f75;
+      opacity: 0.8;
+      font-weight: bold;
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    .tab[aria-selected='true'],
+    .tab[data-selected] {
+      width: 100px;
+      border-bottom: 3px solid #6c5ece;
+      color: #6c5ece;
+      opacity: 1;
+    }
+  }
+
+  .tab-panel {
+    margin: 1rem -1rem;
+  }
+`;
 
 export default Referral;

@@ -4,6 +4,7 @@ export const AUTH_ROUTES = {
   ADMIN_LOGIN: '/admin/login',
   USER: '/user',
   ADMIN: '/admin',
+  NETWORK: '/network',
 };
 
 export const PAY_ROUTES = {
