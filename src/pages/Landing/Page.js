@@ -2,17 +2,19 @@ import React from "react";
 import { Box, Center, Text, Container, Flex, Image, Spacer } from "@chakra-ui/react";
 import "./index.css";
 import hero from "../../assets/social.png";
-import benefit from "../../assets/benefits.png";
 import hand from "../../assets/do.png";
 import Bounce from "react-reveal/Bounce";
+import Slide from "react-reveal/Slide";
 import { PUBLIC_PATHS } from "../../app/constants";
 import { useHistory } from "react-router";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import Objectives from "./Objectives";
+import Benefits from "./Benefits";
 
 const Page = () => {
     const history = useHistory();
     const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
-    
+
     return (
         <>
             <Box className="jumbotron">
@@ -27,7 +29,7 @@ const Page = () => {
                                         fontWeight: "700",
                                         color: "#fff",
                                         textAlign: "left",
-                                        marginTop: "100px",
+                                        marginTop: "250px",
                                     }}
                                 >
                                     Welcome to <br /> Hollograph Technologies <br /> Services{" "}
@@ -75,107 +77,104 @@ const Page = () => {
                                 height="auto"
                                 position="relative"
                                 Left="30px"
-                                border="1px soild red"
+                                top={isNotSmallerScreen ? "150px" : " "}
+                                className='animated'
                             />
                         </Box>
                     </Flex>
                 </Container>
             </Box>
 
-            <Box w="100%" paddingBottom="45px">
+            <Box w="100%" paddingBottom="45px" h={isNotSmallerScreen ? "70vh" : "100vh"}>
                 <Container maxW="container.lg">
-                    <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
-                        <Box w={isNotSmallerScreen ? "50%" : "100%"}>
-                            <Text
-                                style={{
-                                    color: "#463A80",
-                                    fontWeight: "bold",
-                                    fontSize: "2rem",
-                                }}
-                            >
-                                Our Mission
-                            </Text>
-                            <Text
-                                fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
-                                style={{
-                                    color: "#747474",
-                                    textAlign: "left",
-                                }}
-                            >
-                                To inspire productivity and economic growth among Africans through
-                                our unique trading strategies and bring about acquisition of skill
-                                set(s) with lifelong earning potential.
-                            </Text>
+                    <Slide bottom>
+                        <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
+                            <Box w={isNotSmallerScreen ? "50%" : "100%"}>
+                                <Text
+                                    style={{
+                                        color: "#463A80",
+                                        fontWeight: "bold",
+                                        fontSize: "2rem",
+                                    }}
+                                >
+                                    Our Mission
+                                </Text>
+                                <Text
+                                    fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
+                                    style={{
+                                        color: "#747474",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    To inspire productivity and economic growth among Africans
+                                    through our unique trading strategies and bring about
+                                    acquisition of skill set(s) with lifelong earning potential.
+                                </Text>
 
-                            <Text
-                                style={{
-                                    color: "#463A80",
-                                    fontWeight: "700",
-                                    fontSize: "2rem",
-                                    marginTop: "50px",
-                                }}
-                            >
-                                Our Vision
-                            </Text>
-                            <Text
-                                fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
-                                style={{
-                                    color: "#747474",
-                                    textAlign: "left",
-                                }}
-                            >
-                                To become a leading brand in Construction of Unique Modern Day
-                                Structures and the Provision of Innovative Strategies used in Forex
-                                Trading.
-                            </Text>
-                        </Box>
-                        <Spacer />
-                        <Image
-                            src={hero}
-                            objectFit="cover"
-                            marginTop="7px"
-                            marginLeft="10px"
-                            style={{ width: "400px", height: "auto" }}
-                        />
-                    </Flex>
+                                <Text
+                                    style={{
+                                        color: "#463A80",
+                                        fontWeight: "700",
+                                        fontSize: "2rem",
+                                        marginTop: "50px",
+                                    }}
+                                >
+                                    Our Vision
+                                </Text>
+                                <Text
+                                    fontSize={isNotSmallerScreen ? "1.2rem" : "1rem"}
+                                    style={{
+                                        color: "#747474",
+                                        textAlign: "left",
+                                    }}
+                                >
+                                    To become a leading brand in Construction of Unique Modern Day
+                                    Structures and the Provision of Innovative Strategies used in
+                                    Forex Trading.
+                                </Text>
+                            </Box>
+                            <Spacer />
+                            <Image
+                                src={hero}
+                                objectFit="cover"
+                                marginTop="7px"
+                                marginLeft="10px"
+                                style={{ width: "400px", height: "auto" }}
+                            />
+                        </Flex>
+                    </Slide>
                 </Container>
             </Box>
 
-            <Box w="100%" id="object" bg="#F6F6F8" marginTop="50px" marginBottom="20px">
+            <Box
+                w="100%"
+                h={isNotSmallerScreen ? "70vh" : "auto"}
+                bg="#F6F7FB"
+                paddingBottom={isNotSmallerScreen ? "140px" : "50px"}
+            >
                 <Container maxW="container.lg">
+                    <Text
+                        textAlign="center"
+                        marginTop={isNotSmallerScreen ? "40px" : "20px"}
+                        fontSize="2rem"
+                        fontWeight="bold"
+                        color="#463A80"
+                    >
+                        OBJECTIVES{" "}
+                    </Text>
                     <Center>
-                        <Box p={5}>
-                            <Text
-                                style={{
-                                    textAlign: "center",
-                                    fontSize: "18px",
-                                    fontWeight: "700",
-                                    fontFamily: "poppins",
-                                    color: "#fff",
-                                    textTransform: "uppercase",
-                                }}
-                            >
-                                Objectives
-                            </Text>
-                            <ol
-                                style={{
-                                    fontSize: "1.2rem",
-                                    fontWeight: "400",
-                                    lineHeight: "30px",
-                                    color: "#fff",
-                                }}
-                            >
-                                <li> Provide Skill Set Acquisition</li>
-                                <li> Reduce Unemployement</li>
-                                <li> Promote Financial Freedom</li>
-                                <li> Enable Financial Freedom</li>
-                            </ol>
-                        </Box>
+                        <Box borderBottom="3px solid #463A80" w="50px" />
                     </Center>
+                    <Objectives />
                 </Container>
             </Box>
 
-            <Box w="100%" h={isNotSmallerScreen ? "90vh" : "50vh"} marginTop='30px'>
+            <Box
+                w="100%"
+                h={isNotSmallerScreen ? "90vh" : "auto"}
+                bg="white"
+                paddingBottom={isNotSmallerScreen ? "140px" : "50px"}
+            >
                 <Container maxW="container.lg">
                     <Text
                         style={{
@@ -184,6 +183,7 @@ const Page = () => {
                             fontWeight: "700",
                             fontFamily: "poppins",
                             color: "#463A80",
+                            marginTop: "90px",
                         }}
                     >
                         Benefits
@@ -200,23 +200,9 @@ const Page = () => {
                         Why Choose Us?
                     </Text>
                     <Center>
-                        <Image
-                            src={benefit}
-                            boxSize="100%"
-                            objectFit={isNotSmallerScreen ? "contain" : "contain"}
-                        />
+                        <Box borderBottom="3px solid #463A80" w="50px" />
                     </Center>
-                    <Text
-                        textAlign="center"
-                        marginTop="20px"
-                        marginBottom="20px"
-                        _hover={{ cursor: "pointer" }}
-                        onClick={() => {
-                            history.push(PUBLIC_PATHS.BENEFITS);
-                        }}
-                    >
-                        Learn more
-                    </Text>
+                    <Benefits />
                 </Container>
             </Box>
         </>

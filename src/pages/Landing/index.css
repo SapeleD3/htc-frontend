@@ -3,24 +3,24 @@ body {
 }
 
 .jumbotron {
-    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),  url(../../assets/chart.jpg);
+    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),
+        url(../../assets/chart.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     position: relative;
     top: -2%;
-    height: auto;
+    height: 100vh;
     padding-bottom: 10px;
 }
 
-
-.j-btn{
+.j-btn {
     outline: none;
     align-content: center;
     justify-content: center;
     padding: 5px;
-    background-color:#E54242;
+    background-color: #e54242;
     color: #fff;
     border-radius: 5px;
     width: 250px;
@@ -30,26 +30,24 @@ body {
     font-weight: 500;
     font-family: poppins;
     text-transform: uppercase;
-    
 }
 
-.j-btn:hover{
+.j-btn:hover {
     transform: translateY(-10px);
-    box-shadow: 5px 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1);
     transition: all ease 0.2s;
     cursor: pointer;
 }
 
-.team-member:hover{
+.team-member:hover {
     transform: translateY(-10px);
-    box-shadow: 5px 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1);
     transition: all ease 0.2s;
     cursor: pointer;
 }
-
 
 .team-box {
-    background-image:  url(../../assets/team.png);
+    background-image: url(../../assets/team.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -57,26 +55,49 @@ body {
     height: 90vh;
 }
 
-.team-member{
-    box-shadow:  0px 0px 20px rgba(0, 0, 0, 0.1);;
+.team-member {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 #object {
-    background-image:   url('../../assets/object.jpg');
+    background-image: url("../../assets/object.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 30vh;;
+    height: 30vh;
 }
 
 .word {
     font-size: 0.9rem;
 }
 
-@media screen and (max-width: 960px) {
-.word { 
-    font-size: 0.9rem;
-    font-weight: 500;
+.members-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all ease 0.2s;
+    cursor: pointer;
 }
+
+.animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+@media screen and (max-width: 960px) {
+    .word {
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    .jumbotron {
+        background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),
+            url(../../assets/chart.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        top: -2%;
+        height: auto;
+        padding-bottom: 10px;
+    }
 }
