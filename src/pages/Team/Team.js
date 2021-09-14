@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { Container, Box, Text, Center, Avatar, Flex } from "@chakra-ui/react";
 import Header from "../../components/Header";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import './index.css'
 
 const Team = () => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
@@ -13,6 +14,8 @@ const Team = () => {
     return (
         <>
             <Header />
+        <Box className='team-jumbo'/>
+
             <section id="team">
                 <Text
                     style={{

@@ -11,3 +11,7 @@ export const PAY_ROUTES = {
   PAY: '/pay',
   VERIFY: '/pay/verify',
 };
+
+export const VIDEO_ROUTES = {
+  POST:'/videos'
+}

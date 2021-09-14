@@ -1,4 +1,11 @@
+.active {
+    background: linear-gradient(93.67deg, #463A80 -2.82%, #303030 98.75%);
+    color: white;
+}
 
+.header{
+    color: white;
+}
 .menu-icon {
     display: none;
 }
@@ -73,5 +80,7 @@
     .btn-area {
         display: none;
     }
+
+    
 
 }

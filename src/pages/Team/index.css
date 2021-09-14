@@ -1,0 +1,12 @@
+.team-jumbo {
+    background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),
+        url(../../assets/chart.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    top: -9%;
+    height: 150px;
+    padding-bottom: 10px;
+}

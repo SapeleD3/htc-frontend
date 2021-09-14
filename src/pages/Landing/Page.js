@@ -38,6 +38,7 @@ const Page = () => {
                                     </Text>
                                 </Text>
                             </Bounce>
+                            <Slide left>
                             <Text
                                 textAlign="left"
                                 textStyle="italic"
@@ -46,8 +47,7 @@ const Page = () => {
                                 mb={5}
                                 style={{ textStyle: "italic" }}
                             >
-                                Forex Education, Free Forex Training Sessions, <br /> Free Forex
-                                Trading Sessions, CryptoCurrency Trading
+                                Forex Education,  Forex Trading Sessions, <br/> CryptoCurrency Trading & Real-Estate
                             </Text>
                             <button
                                 className="j-btn"
@@ -67,6 +67,7 @@ const Page = () => {
                             >
                                 Building a better future...
                             </Text>
+                            </Slide>
                         </Box>
                         <Spacer />
                         <Box>

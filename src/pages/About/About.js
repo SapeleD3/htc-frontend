@@ -7,6 +7,7 @@ import Strategy from "./Strategy";
 import Human from "./Human";
 import Management from "./Management";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import './index.css'
 
 
 const About = () => {
@@ -20,6 +21,7 @@ const About = () => {
         <>
         <Stack >
         <Header />
+        <Box className='jumbot'/>
             <Box>
                 <Container maxW="container.lg">
                     <Tabs size={isNotSmallerScreen ? "md" : "sm"} isFitted >

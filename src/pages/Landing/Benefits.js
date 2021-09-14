@@ -11,12 +11,12 @@ const data = [
     {
         id: 2,
         title: "BE A PARTNER AND OWN A HOME YOURSELF",
-        body: " It is our believe that it is possible for every of our partner to own a home of their own, and such we are saying lets join hands together in building brand that is capable of providing a better future for everyone.",
+        body: " It is our believe that it is possible for every of our partner to own a home of their own, and as such we are saying join us in building a brand that is capable of providing a better future for our partners.",
     },
     {
         id: 3,
         title: "BE FINANCIALLY INDEPENDENT",
-        body: " With our unique trading strategies, you too can be financially independent.",
+        body: " With our unique trading strategies & Cycle-out programme you too can be financially independent.",
     },
 ];
 
