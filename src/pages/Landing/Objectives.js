@@ -18,7 +18,7 @@ const obj = [
     },
     {
         id: 4,
-        text: " Enable Financial Freedom ",
+        text: "Facilitate Real-Estate Asset Acqusition ",
     },
 ];
 

@@ -27,8 +27,7 @@ export default function AppFooter() {
                     <Center mt={5}>
                         <Flex flexWrap="wrap" direction={isNotSmallerScreen ? "row" : "column"}>
                             <Text fontSize={isNotSmallerScreen ? "0.9rem" : "0.7rem"}>
-                                Address: Mercy Plaza, #573, Melford Okilo Road, <br /> Opposite
-                                Arizona Filling Station, Yenizue-Gene, Yenagoa, Bayelsa State.
+                                Address: Mercy Plaza, #573, Melford Okilo Road, <br /> Yenizue-Gene, Yenagoa, Bayelsa State.
                             </Text>
                             <Spacer />
                             <Box>

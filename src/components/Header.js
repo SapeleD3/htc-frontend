@@ -9,23 +9,33 @@ import "./Header.css";
 const Header = () => {
     const history = useHistory();
     const [clicked, setClicked] = useState(false);
+    const [ navbar, setNavbar ] = useState(false)
 
     const handleClick = () => {
         setClicked(!clicked);
     };
 
+    const changeBackground =()=> {
+        if(window.scrollY >= 70 ){
+            setNavbar(true)
+        } else {
+            setNavbar(false)
+        }
+    }
+
+    window.addEventListener('scroll', changeBackground )
+
     return (
         <>
             <Box
-                className="header"
+                className={navbar ? 'active' : 'header'}
                 w="100%"
-                background="rgba(208, 216, 205, 1);"
                 p={3}
                 position="sticky"
                 zIndex="999"
                 top="0"
                 h="70px"
-                borderBottom="2px solid  #C9D0C9"
+               
             >
                 <Container maxW="container.xl">
                     <Flex>
@@ -33,9 +43,9 @@ const Header = () => {
                         <div className="menu-icon" onClick={handleClick}>
                             <i>
                                 {clicked ? (
-                                    <FaTimes className="fabars" style={{ color: "#0F1422" }} />
+                                    <FaTimes className="fabars" style={{ color: "#fff" }} />
                                 ) : (
-                                    <FaBars className="times" style={{ color: "#0F1422" }} />
+                                    <FaBars className="times" style={{ color: "#fff" }} />
                                 )}{" "}
                             </i>
                         </div>

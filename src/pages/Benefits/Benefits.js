@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import Header from "../../components/Header";
 import { Box, Container, Text, Stack } from "@chakra-ui/layout";
 import { useMediaQuery } from "@chakra-ui/media-query";
+import './index.css'
 
 
 const Benefits = () => {
@@ -15,6 +16,7 @@ const Benefits = () => {
         <>
             <Stack>
                 <Header />
+                <Box className='benefit-head'/>
                 <Box>
                     <Container maxW="container.lg">
                         <Text textAlign="center" fontWeight="bold" fontSize="1.5rem">

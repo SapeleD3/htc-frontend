@@ -10,7 +10,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    top: -2%;
+    top: -5%;
     height: 100vh;
     padding-bottom: 10px;
 }
@@ -86,7 +86,7 @@ body {
 @media screen and (max-width: 960px) {
     .word {
         font-size: 0.9rem;
-        font-weight: 500;
+        font-weight: 400;
     }
     .jumbotron {
         background-image: linear-gradient(117.95deg, #25232e -4.73%, rgba(24, 36, 55, 0.82) 55.25%),
@@ -96,7 +96,7 @@ body {
         background-position: center;
         background-attachment: fixed;
         position: relative;
-        top: -2%;
+        top: -5%;
         height: auto;
         padding-bottom: 10px;
     }
