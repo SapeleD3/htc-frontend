@@ -21,6 +21,8 @@ const HtsTv = () => {
                             controls="true"
                             width="100%"
                             height="auto"
+                            autoplay
+                            muted={true}
                         />
                     </Box>
 

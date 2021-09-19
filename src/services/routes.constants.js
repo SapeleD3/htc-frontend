@@ -13,5 +13,12 @@ export const PAY_ROUTES = {
 };
 
 export const VIDEO_ROUTES = {
-  POST:'/videos'
+  POST:'/videos',
+  DELETE: (id)=> `/videos/${id}`,
+  GET:'/admin/videos',
+  PUT: (id)=>`/videos/${id}`
+}
+
+export const USER_ROUTES = {
+  GET:'/videos'
 }
