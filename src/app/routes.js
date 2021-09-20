@@ -15,6 +15,7 @@ import HtsTv from '../pages/HtsTv/HtsTv';
 import AdminLogin from '../adminPages/login';
 import Post from '../adminPages/Post/Post';
 import People from '../adminPages/People/People';
+import Watch from '../pages/HtsTv/Watch';
 
 const {
   LOGIN,
@@ -28,7 +29,7 @@ const {
   REFERRAL_REGISTER,
 } = PUBLIC_PATHS;
 const { DASHBOARD: ADMIN_DASHBOARD, POST: ADMIN_POST, PEOPLE } = ADMIN_PATHS;
-const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV } = PROTECTED_PATHS;
+const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV, WATCH } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
     path: LANDING,
@@ -97,6 +98,11 @@ export const PROTECTED_ROUTES = [
     path: PROFILE,
     page: Index,
   },
+  {
+    path: WATCH,
+    page: Watch,
+  },
+  
 ];
 
 export const FREE_ROUTES = [

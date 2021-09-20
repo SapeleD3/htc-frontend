@@ -4,6 +4,7 @@ import { useMediaQuery } from "@chakra-ui/media-query";
 import ReactPlayer from "react-player/lazy";
 import { useState, useEffect } from "react";
 import { getVideos } from "./hts.api";
+import { Link } from 'react-router-dom'
 
 const TradingStrategies = () => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
@@ -11,13 +12,11 @@ const TradingStrategies = () => {
     const [loading, setLoading] = useState(false);
     const toast = useToast();
 
+    const category = 'trading-strategies'
+
     const fetchData = async () => {
         getVideos(setLoading, toast, setVideos);
     };
-
-   
-
-    
 
     useEffect(() => {
         fetchData();
@@ -29,10 +28,11 @@ const TradingStrategies = () => {
                 templateColumns={isNotSmallerScreen ? "repeat(3, 1fr)" : "repeat(1, 1fr)"}
                 gap={6}
             >
-                {videos
+                {videos.filter((v) => v.category === category)
                     .slice()
                     .reverse()
                     .map((data) => (
+                        <Link to={`/watch/${data._id}`}>
                         <Box w="100%" mb={isNotSmallerScreen ? "0" : "5"} key={data._id}>
                             <ReactPlayer
                                 url={data.videoUrl}
@@ -44,6 +44,7 @@ const TradingStrategies = () => {
 
                             <Text>{data.name}</Text>
                         </Box>
+                        </Link>
                     ))}
             </Grid>
         </Box>

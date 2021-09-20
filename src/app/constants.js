@@ -27,6 +27,7 @@ export const PROTECTED_PATHS = {
   PROFILE: '/profile',
   HTSTV: '/hts-tv',
   HTSACADEMY: '/hts-academy',
+  WATCH: '/watch/:id'
 };
 
 /**
