@@ -9,16 +9,11 @@ import {
     Center,
     Flex,
     useToast,
-    Grid,
-    IconButton,
-    Spacer
 } from "@chakra-ui/react";
 import { IoCreateOutline } from "react-icons/io5";
 import { useMediaQuery } from "@chakra-ui/media-query";
-import { useEffect, useState } from "react";
-import { adminCreate, adminGet, videoDelete } from "./post.api";
-import ReactPlayer from "react-player/lazy";
-import { AiFillDelete } from "react-icons/ai";
+import { useState } from "react";
+import { adminCreate } from "./post.api";
 
 const Post = () => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
@@ -26,18 +21,9 @@ const Post = () => {
     const [videoUrl, setVideoUrl] = useState("");
     const [category, setCategory] = useState("");
     const [channel, setChannel] = useState("");
-    const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(false);
     const toast = useToast();
 
-    const fetchData = () => {
-        adminGet(setLoading, toast, setVideos);
-    };
-
-    const handleDelete = async (id) => {
-        await videoDelete(setLoading, id);
-        await adminGet(setLoading, toast, setVideos);
-    };
     const handleForm = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -51,14 +37,9 @@ const Post = () => {
             },
             toast
         );
-        setName('')
-        setVideoUrl('')
-        await adminGet(setLoading, toast, setVideos);
+        setName("");
+        setVideoUrl("");
     };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
 
     return (
         <Container maxW="container.xl">
@@ -124,39 +105,6 @@ const Post = () => {
                     </Box>
                 </Box>
             </Center>
-
-            <Box mt={9}>
-                <Text mb={5}>Videos </Text>
-                <Grid templateColumns={isNotSmallerScreen ? "repeat(4, 1fr)" : "repeat(1, 1fr)"} gap={6}>
-                    {videos.slice().reverse().map((data) => (
-                        <Box w="100%" mb={8} key={data._id}>
-                            <ReactPlayer
-                                url={data.videoUrl}
-                                width="auto"
-                                height="auto"
-                                style={{ borderRadius: "20px" }}
-                                controls="true"
-                            />
-                            <Text>Name: {data.name}</Text>
-                            <Text>Category: {data.category}</Text>
-                            <Text>Channel: {data.channel}</Text>
-                            <Flex>
-                                <Button>Edit</Button>
-                                <Spacer/>
-                                <IconButton
-                            bg='transparent'
-                            color='black'
-                                onClick={(e) => handleDelete(data._id)}
-                                isLoading={loading}
-                                aria-label="Search database"
-                                icon={<AiFillDelete />}
-                            />
-                                </Flex>
-                        
-                        </Box>
-                    ))}
-                </Grid>
-            </Box>
         </Container>
     );
 };
