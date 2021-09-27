@@ -16,6 +16,10 @@ import AdminLogin from '../adminPages/login';
 import Post from '../adminPages/Post/Post';
 import People from '../adminPages/People/People';
 import Watch from '../pages/HtsTv/Watch';
+import Awatch from '../adminPages/Post/AWatch'
+import Content from '../adminPages/Content/Content';
+import EditContent from '../adminPages/Post/EditContent';
+import AdminDashboard from '../adminPages/Dashboard/Dashboard';
 
 const {
   LOGIN,
@@ -28,7 +32,7 @@ const {
   ADMIN_LOGIN,
   REFERRAL_REGISTER,
 } = PUBLIC_PATHS;
-const { DASHBOARD: ADMIN_DASHBOARD, POST: ADMIN_POST, PEOPLE } = ADMIN_PATHS;
+const { DASHBOARD: ADMIN_DASHBOARD, POST: ADMIN_POST, PEOPLE, AWATCH, EDIT, CONTENT } = ADMIN_PATHS;
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSTV, WATCH } = PROTECTED_PATHS;
 export const PUBLIC_ROUTES = [
   {
@@ -119,7 +123,7 @@ export const FREE_ROUTES = [
 export const ADMIN_ROUTES = [
   {
     path: ADMIN_DASHBOARD,
-    page: ComingSoon,
+    page: AdminDashboard,
   },
   {
     path: ADMIN_POST,
@@ -128,5 +132,17 @@ export const ADMIN_ROUTES = [
   {
     path: PEOPLE,
     page: People,
+  },
+  {
+    path: AWATCH,
+    page: Awatch,
+  },
+  {
+    path: EDIT,
+    page: EditContent,
+  },
+  {
+    path: CONTENT,
+    page: Content,
   },
 ];

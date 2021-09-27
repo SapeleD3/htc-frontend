@@ -10,7 +10,7 @@ import { IoIosPeople } from 'react-icons/io'
 const { DASHBOARD, REFERRAL, TRANSACTION, PROFILE, HTSACADEMY, HTSTV } =
   PROTECTED_PATHS;
 
-const { DASHBOARD: ADMIN_DASH, POST: ADMIN_POST, PEOPLE } = ADMIN_PATHS;
+const { DASHBOARD: ADMIN_DASH, POST: ADMIN_POST, PEOPLE, CONTENT } = ADMIN_PATHS;
 export const NAV = [
   {
     name: 'Dashboard',
@@ -71,6 +71,11 @@ export const ADMIN_NAV = [
   {
     name: 'People',
     to: PEOPLE,
+    icon: <IoIosPeople size={25} color='white' />,
+  },
+  {
+    name: 'Content',
+    to: CONTENT,
     icon: <IoIosPeople size={25} color='white' />,
   },
 ];
